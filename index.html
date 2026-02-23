@@ -383,19 +383,15 @@
             document.getElementById('reviewsSlider').scrollBy({ left: direction * 370, behavior: 'smooth' });
         }
 
-        function orderToTelegram() {
-            if(!activeSize) { alert('Будь ласка, оберіть ваш розмір!'); return; }
+       function orderToTelegram() {
             if(typeof fbq === 'function') fbq('track', 'Purchase', { value: 2400, currency: 'UAH', content_name: activeColorName });
             const message = `Вітаю! Хочу замовити мокасини.%0AМодель: Літні мокасини BRAXTON%0AКолір: ${activeColorName}%0AРозмір: ${activeSize}`;
-            window.open(`https://t.me/braxtonmanager?text=${message}`, '_blank');
+            window.location.href = `https://t.me/braxtonmanager?text=${message}`;
         }
 
-        // НОВА ФУНКЦІЯ ДЛЯ VIBER
         function orderToViber() {
-            if(!activeSize) { alert('Будь ласка, оберіть ваш розмір!'); return; }
             if(typeof fbq === 'function') fbq('track', 'Purchase', { value: 2400, currency: 'UAH', content_name: activeColorName });
-            const message = `Вітаю! Хочу замовити мокасини.%0AМодель: Літні мокасини BRAXTON%0AКолір: ${activeColorName}%0AРозмір: ${activeSize}`;
-            window.location.href = `viber://chat?number=%2B380734595423&text=${message}`;
+            window.location.href = 'viber://chat?number=%2B380734595423';
         }
 
         selectColor('Латте (нубук)', 'latte');
@@ -403,3 +399,4 @@
 </body>
 
 </html>
+
