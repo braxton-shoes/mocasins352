@@ -88,6 +88,10 @@
 
         .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .buy-btn:hover { background-color: #b17b44; transform: translateY(-2px); }
+        
+        /* Стиль для кнопки Viber */
+        .viber-btn { background-color: #7360f2; }
+        .viber-btn:hover { background-color: #5a4ab8; }
 
         /* Доставка */
         .delivery-info { background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; padding: 25px; margin-top: 20px; }
@@ -214,7 +218,10 @@
                 <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
             </div>
 
-            <button class="buy-btn" onclick="orderToTelegram()">Замовити в Telegram</button>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button class="buy-btn" onclick="orderToTelegram()">Замовити в Telegram</button>
+                <button class="buy-btn viber-btn" onclick="orderToViber()">Замовити у Viber</button>
+            </div>
 
             <div class="delivery-info">
                 <h3>Доставка та оплата</h3>
@@ -381,6 +388,14 @@
             if(typeof fbq === 'function') fbq('track', 'Purchase', { value: 2400, currency: 'UAH', content_name: activeColorName });
             const message = `Вітаю! Хочу замовити мокасини.%0AМодель: Літні мокасини BRAXTON%0AКолір: ${activeColorName}%0AРозмір: ${activeSize}`;
             window.open(`https://t.me/braxtonmanager?text=${message}`, '_blank');
+        }
+
+        // НОВА ФУНКЦІЯ ДЛЯ VIBER
+        function orderToViber() {
+            if(!activeSize) { alert('Будь ласка, оберіть ваш розмір!'); return; }
+            if(typeof fbq === 'function') fbq('track', 'Purchase', { value: 2400, currency: 'UAH', content_name: activeColorName });
+            const message = `Вітаю! Хочу замовити мокасини.%0AМодель: Літні мокасини BRAXTON%0AКолір: ${activeColorName}%0AРозмір: ${activeSize}`;
+            window.open(`viber://chat?number=380734595423&text=${message}`, '_blank');
         }
 
         selectColor('Латте (нубук)', 'latte');
