@@ -101,13 +101,18 @@
         .form-group input:focus { border-color: #111; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
 
+        /* КЛАСИ ДЛЯ МОБІЛЬНИХ/ДЕСКТОПУ */
+        .mobile-only { display: none; }
         @media (max-width: 768px) {
             .container { margin: 0; border-radius: 0; flex-direction: column; }
             .product-gallery, .product-info { padding: 25px; }
             .review-card { flex: 0 0 85%; }
             .color-showcase-item { flex: 0 1 calc(50% - 10px); }
-            /* На мобільних завжди показуємо стрілки */
             .photo-nav { opacity: 1; width: 35px; height: 35px; background: rgba(255,255,255,0.6); }
+            
+            /* На телефоні показуємо мобільний вибір кольору, ховаємо десктопний */
+            .mobile-only { display: block; }
+            .desktop-only { display: none; }
         }
     </style>
 </head>
@@ -122,6 +127,18 @@
             <img id="mainImage" src="">
             <button class="photo-nav photo-next" onclick="changeImageByStep(1)">❯</button>
         </div>
+
+        <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
+            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук)</span></span>
+            <div class="color-options" style="justify-content: center; margin-top: 10px;">
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')"></div>
+            </div>
+        </div>
+
         <div class="thumbnails-container" id="thumbnails"></div>
     </div>
 
@@ -137,13 +154,15 @@
             <li><strong>Виробництво:</strong> Україна (BRAXTON Legacy)</li>
         </ul>
 
-        <span class="selector-title">Оберіть колір: <span id="colorNameDisplay">Латте (нубук)</span></span>
-        <div class="color-options">
-            <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')"></div>
-            <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')"></div>
-            <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')"></div>
-            <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')"></div>
-            <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')"></div>
+        <div class="desktop-only">
+            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук)</span></span>
+            <div class="color-options">
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')"></div>
+            </div>
         </div>
 
         <div class="selector-header">
@@ -268,7 +287,7 @@
     const mainImageEl = document.getElementById('mainImage');
     const swipeArea = document.getElementById('swipeArea');
 
-    // Логіка для свайпу на телефоні
+    // Свайп для телефону
     let ts = 0;
     swipeArea.addEventListener('touchstart', e => { ts = e.changedTouches[0].screenX; }, {passive: true});
     swipeArea.addEventListener('touchend', e => { 
@@ -281,9 +300,14 @@
         activeColorKey = key;
         activeColorName = name;
         imgIdx = 0;
-        document.getElementById('colorNameDisplay').innerText = name;
+        
+        // Оновлюємо текст скрізь (і на мобільному, і на десктопі)
+        document.querySelectorAll('.colorNameDisplay').forEach(el => el.innerText = name);
+        
+        // Оновлюємо кружечки скрізь
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
-        document.querySelector('.color-'+key).classList.add('active');
+        document.querySelectorAll('.color-'+key).forEach(c => c.classList.add('active'));
+        
         document.querySelectorAll('.color-showcase-item').forEach(i => i.classList.toggle('active', i.classList.contains('showcase-'+key)));
         updateGallery();
     }
@@ -291,14 +315,12 @@
     function updateGallery() {
         const imgs = productImages[activeColorKey];
         
-        // Плавна анімація згасання
+        // Плавна анімація
         mainImageEl.style.opacity = '0.3';
-        
         setTimeout(() => {
             mainImageEl.src = imgs[imgIdx];
-            // Плавна анімація появи
             mainImageEl.style.opacity = '1';
-        }, 150); // Час, за який фото зникає перед перемиканням
+        }, 150);
 
         const thumbs = document.getElementById('thumbnails');
         thumbs.innerHTML = '';
@@ -328,36 +350,39 @@
     function closeOrderModal() { document.getElementById('orderModal').style.display = 'none'; }
     function toggleSizeModal(s) { document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; }
 
-    function sendOrderToTelegram(data) {
-        const text = `Товар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\n\nКлієнт: ${data.name}\nТел: ${data.phone}\nНаселений пункт: ${data.city}\nПошта: ${data.post}`;
-        const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
-        const chat = '8345637105';
-        return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
-    }
-
     function sendFinalOrder(e) {
         e.preventDefault();
         const btn = document.getElementById('subBtn');
         btn.disabled = true;
         btn.innerText = 'Відправка...';
 
-        const formData = {
-            name: document.getElementById('custName').value,
-            phone: document.getElementById('custPhone').value,
-            city: document.getElementById('custCity').value,
-            post: document.getElementById('custPost').value
-        };
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+        const city = document.getElementById('custCity').value;
+        const post = document.getElementById('custPost').value;
 
-        sendOrderToTelegram(formData)
-        .then(res => {
-            if(res.ok) {
-                if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2400, currency: 'UAH', content_name: activeColorName});
-                document.querySelector('form').style.display = 'none';
-                document.getElementById('successMsg').style.display = 'block';
-                setTimeout(closeOrderModal, 4000);
-            } else { alert('Помилка сервера. Спробуйте ще раз!'); btn.disabled = false; btn.innerText = 'Підтвердити замовлення'; }
+        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+
+        const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
+        
+        // ТУТ ВАШІ ДВА ID
+        const chatIds = ['8345637105', 'ID_ДРУГОЇ_ЛЮДИНИ']; 
+
+        Promise.all(chatIds.map(chatId => {
+            if (chatId === 'ID_ДРУГОЇ_ЛЮДИНИ') return Promise.resolve(); 
+            return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
+        }))
+        .then(() => {
+            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2400, currency: 'UAH', content_name: activeColorName});
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(closeOrderModal, 4000);
         })
-        .catch(() => { alert('Помилка зв\'язку!'); btn.disabled = false; btn.innerText = 'Підтвердити замовлення'; });
+        .catch(() => {
+            alert('Помилка зв\'язку. Спробуйте ще раз!');
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
+        });
     }
 
     selectColor('Латте (нубук)', 'latte');
