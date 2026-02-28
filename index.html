@@ -120,9 +120,6 @@
         .form-group input:focus { border-color: #111; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
 
-        /* ЛИПКАЯ КНОПКА ДЛЯ ТЕЛЕФОНА */
-        .mobile-sticky-btn { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 10px 15px 15px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); z-index: 1000; }
-
         /* КЛАСИ ДЛЯ МОБІЛЬНИХ/ДЕСКТОПУ */
         .mobile-only { display: none; }
         @media (max-width: 768px) {
@@ -135,9 +132,6 @@
             
             .mobile-only { display: block; }
             .desktop-only { display: none; }
-
-            .mobile-sticky-btn { display: block; }
-            body { padding-bottom: 80px; }
         }
     </style>
 </head>
@@ -270,10 +264,6 @@
         </div>
         <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
-</div>
-
-<div class="mobile-sticky-btn">
-    <button class="buy-btn pulse-btn" style="padding: 15px; font-size: 16px;" onclick="openOrderModal()">Оформити замовлення</button>
 </div>
 
 <div id="orderModal" class="modal">
