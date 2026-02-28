@@ -26,7 +26,6 @@
         
         .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
         .main-image-container { width: 100%; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.1); touch-action: pan-y; cursor: crosshair; }
-        /* Добавлена плавная трансформация для лупы */
         .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
 
         .photo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(255,255,255,0.8); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #333; z-index: 5; opacity: 0; transition: 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -67,7 +66,7 @@
         .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
         .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: bold; }
 
-        /* Кнопка с анимацией пульсации */
+        /* АНИМАЦИЯ ПУЛЬСАЦИИ */
         @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} 50% {transform: scale(1.02); box-shadow: 0 0 15px rgba(17,17,17,0.3);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(17,17,17,0);} }
         .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .buy-btn:hover { background-color: #b17b44; }
@@ -79,7 +78,7 @@
         .delivery-item::before { position: absolute; left: 0; font-size: 20px; }
         .icon-box::before { content: '📦'; } .icon-card::before { content: '💳'; } .icon-return::before { content: '🔄'; }
 
-        /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
+        /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ */
         .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -137,7 +136,6 @@
             .mobile-only { display: block; }
             .desktop-only { display: none; }
 
-            /* Включаем липкую кнопку и добавляем отступ снизу, чтобы она не перекрывала сайт */
             .mobile-sticky-btn { display: block; }
             body { padding-bottom: 80px; }
         }
@@ -196,18 +194,20 @@
             </div>
         </div>
 
-        <div class="selector-header">
-            <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal">не обрано</span></span>
-            <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
-        </div>
-        <div class="size-options">
-            <button class="size-btn" onclick="selectSize(this)">39 (25.5см)</button>
-            <button class="size-btn" onclick="selectSize(this)">40 (26.5см)</button>
-            <button class="size-btn" onclick="selectSize(this)">41 (27см)</button>
-            <button class="size-btn" onclick="selectSize(this)">42 (27.5см)</button>
-            <button class="size-btn" onclick="selectSize(this)">43 (28см)</button>
-            <button class="size-btn" onclick="selectSize(this)">44 (29см)</button>
-            <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
+        <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin: -10px -10px 10px -10px; transition: background-color 0.5s ease;">
+            <div class="selector-header">
+                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal">не обрано</span></span>
+                <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
+            </div>
+            <div class="size-options">
+                <button class="size-btn" onclick="selectSize(this)">39 (25.5см)</button>
+                <button class="size-btn" onclick="selectSize(this)">40 (26.5см)</button>
+                <button class="size-btn" onclick="selectSize(this)">41 (27см)</button>
+                <button class="size-btn" onclick="selectSize(this)">42 (27.5см)</button>
+                <button class="size-btn" onclick="selectSize(this)">43 (28см)</button>
+                <button class="size-btn" onclick="selectSize(this)">44 (29см)</button>
+                <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
+            </div>
         </div>
 
         <button class="buy-btn pulse-btn" onclick="openOrderModal()">Оформити замовлення</button>
@@ -321,7 +321,7 @@
         'latte': ['latte_1.jpg', 'latte_2.jpg', 'latte_3.jpg', 'latte_4.jpg', 'latte_5.jpg', 'latte_6.jpg'],
         'blue':  ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg'],
         'gray':  ['gray_1.jpg', 'gray_2.jpg', 'gray_3.jpg', 'gray_4.jpg'],
-        'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg',],
+        'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg'],
         'black': ['black_1.jpg', 'black_2.jpg', 'black_3.jpg', 'black_4.jpg', 'black_5.jpg', 'black_6.jpg'],
         'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg'],
         'ivory': ['ivory_1.jpg', 'ivory_2.jpg', 'ivory_3.jpg', 'ivory_4.jpg', 'ivory_5.jpg', 'ivory_6.jpg']
@@ -418,9 +418,31 @@
         btn.classList.add('active');
         activeSize = btn.innerText;
         document.getElementById('sizeText').innerText = activeSize;
+        
+        // Убираем подсветку если она была
+        document.getElementById('sizeSection').style.backgroundColor = 'transparent';
     }
 
-    function openOrderModal() { if(!activeSize) { alert('Будь ласка, оберіть розмір!'); return; } document.getElementById('orderModal').style.display = 'flex'; }
+    // ЛОГИКА АВТОСКРОЛЛА ЕСЛИ НЕ ВЫБРАН РАЗМЕР
+    function openOrderModal() { 
+        if(!activeSize) { 
+            alert('Будь ласка, оберіть ваш розмір!'); 
+            
+            // Плавный скролл к блоку размеров
+            const sizeBlock = document.getElementById('sizeSection');
+            sizeBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Легкая красная подсветка на 1.5 секунды
+            sizeBlock.style.backgroundColor = '#ffe0e0';
+            setTimeout(() => {
+                sizeBlock.style.backgroundColor = 'transparent';
+            }, 1500);
+            
+            return; 
+        } 
+        document.getElementById('orderModal').style.display = 'flex'; 
+    }
+
     function closeOrderModal() { 
         document.getElementById('orderModal').style.display = 'none'; 
         setTimeout(() => {
@@ -428,6 +450,7 @@
             document.getElementById('successMsg').style.display = 'none';
         }, 300);
     }
+    
     function toggleSizeModal(s) { document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; }
 
     function sendFinalOrder(e) {
@@ -456,7 +479,6 @@
             if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2450, currency: 'UAH', content_name: activeColorName});
             document.querySelector('form').style.display = 'none';
             document.getElementById('successMsg').style.display = 'block';
-            // Не закрываем автоматически, чтобы клиент точно увидел галочку. Клиент закроет сам кнопкой "Закрити".
         })
         .catch(() => {
             alert('Помилка зв\'язку. Спробуйте ще раз!');
