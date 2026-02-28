@@ -51,10 +51,16 @@
         .selector-title { font-weight: bold; color: #222; font-size: 15px; }
         .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 500; }
         
-        .color-options { display: flex; gap: 12px; margin-bottom: 30px; }
+        .color-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
         .color-circle { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; }
         .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .color-latte { background-color: #c2a37f; } .color-blue { background-color: #2c3e50; } .color-gray { background-color: #8a8d91; } .color-black { background-color: #222; } .color-ivory { background-color: #fffff0; }
+        .color-latte { background-color: #c2a37f; } 
+        .color-blue { background-color: #2c3e50; } 
+        .color-gray { background-color: #8a8d91; } 
+        .color-black { background-color: #222; } 
+        .color-ivory { background-color: #fffff0; }
+        .color-brown { background-color: #6b4e31; } /* Новий колір: Коричнева замша */
+        .color-black_smooth { background-color: #0f0f0f; border: 1px solid #555; } /* Новий колір: Чорна гладка шкіра */
 
         .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
         .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
@@ -87,10 +93,18 @@
         /* ВІДГУКИ */
         .reviews-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; position: relative; }
         .reviews-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: bold; }
-        .reviews-slider { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; }
+        
+        /* Стилі для стрілочок слайдера відгуків */
+        .slider-wrapper { position: relative; display: flex; align-items: center; }
+        .reviews-slider { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; width: 100%; }
         .reviews-slider::-webkit-scrollbar { display: none; }
         .review-card { flex: 0 0 350px; scroll-snap-align: center; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eee; }
         .review-card img { width: 100%; height: auto; display: block; }
+        
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: #fff; border: 1px solid #eee; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 18px; color: #333; transition: 0.3s; }
+        .nav-btn:hover { background: #111; color: #fff; }
+        .prev-btn { left: -22.5px; } 
+        .next-btn { right: -22.5px; }
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); }
@@ -109,8 +123,8 @@
             .review-card { flex: 0 0 85%; }
             .color-showcase-item { flex: 0 1 calc(50% - 10px); }
             .photo-nav { opacity: 1; width: 35px; height: 35px; background: rgba(255,255,255,0.6); }
+            .nav-btn { display: none; } /* Ховаємо стрілки відгуків на телефоні (там є свайп) */
             
-            /* На телефоні показуємо мобільний вибір кольору, ховаємо десктопний */
             .mobile-only { display: block; }
             .desktop-only { display: none; }
         }
@@ -131,11 +145,13 @@
         <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
             <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук)</span></span>
             <div class="color-options" style="justify-content: center; margin-top: 10px;">
-                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')"></div>
-                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')"></div>
-                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')"></div>
-                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')"></div>
-                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')"></div>
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')" title="Латте"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')" title="Синя замша"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')" title="Сіра замша"></div>
+                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша', 'brown')" title="Коричнева замша"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')" title="Чорна шкіра"></div>
+                <div class="color-circle color-black_smooth" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')" title="Чорна гладка шкіра"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')" title="Слонова кістка"></div>
             </div>
         </div>
 
@@ -157,11 +173,13 @@
         <div class="desktop-only">
             <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук)</span></span>
             <div class="color-options">
-                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')"></div>
-                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')"></div>
-                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')"></div>
-                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')"></div>
-                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')"></div>
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук)', 'latte')" title="Латте"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')" title="Синя замша"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша', 'gray')" title="Сіра замша"></div>
+                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша', 'brown')" title="Коричнева замша"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра', 'black')" title="Чорна шкіра"></div>
+                <div class="color-circle color-black_smooth" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')" title="Чорна гладка шкіра"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка', 'ivory')" title="Слонова кістка"></div>
             </div>
         </div>
 
@@ -211,8 +229,14 @@
         <div class="color-showcase-item showcase-gray" onclick="selectColor('Сіра замша', 'gray')">
             <img src="gray_1.jpg"><span>Сіра замша</span>
         </div>
+        <div class="color-showcase-item showcase-brown" onclick="selectColor('Коричнева замша', 'brown')">
+            <img src="brown_1.jpg"><span>Коричнева замша</span>
+        </div>
         <div class="color-showcase-item showcase-black" onclick="selectColor('Чорна шкіра', 'black')">
             <img src="black_1.jpg"><span>Чорна шкіра</span>
+        </div>
+        <div class="color-showcase-item showcase-black_smooth" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')">
+            <img src="black_smooth_1.jpg"><span>Чорна гладка шкіра</span>
         </div>
         <div class="color-showcase-item showcase-ivory" onclick="selectColor('Слонова кістка', 'ivory')">
             <img src="ivory_1.jpg"><span>Слонова кістка</span>
@@ -222,12 +246,16 @@
 
 <div class="reviews-section">
     <h2 class="reviews-title">Відгуки наших покупців</h2>
-    <div class="reviews-slider">
-        <div class="review-card"><img src="review_1.jpg"></div>
-        <div class="review-card"><img src="review_2.jpg"></div>
-        <div class="review-card"><img src="review_3.jpg"></div>
-        <div class="review-card"><img src="review_4.jpg"></div>
-        <div class="review-card"><img src="review_5.jpg"></div>
+    <div class="slider-wrapper">
+        <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
+        <div class="reviews-slider" id="reviewsSlider">
+            <div class="review-card"><img src="review_1.jpg"></div>
+            <div class="review-card"><img src="review_2.jpg"></div>
+            <div class="review-card"><img src="review_3.jpg"></div>
+            <div class="review-card"><img src="review_4.jpg"></div>
+            <div class="review-card"><img src="review_5.jpg"></div>
+        </div>
+        <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
 </div>
 
@@ -271,11 +299,14 @@
 </div>
 
 <script>
+    // Додано два нові масиви для "brown" (Коричнева замша) та "black_smooth" (Чорна гладка шкіра)
     const productImages = {
         'latte': ['latte_1.jpg', 'latte_2.jpg', 'latte_3.jpg', 'latte_4.jpg', 'latte_5.jpg', 'latte_6.jpg'],
         'blue':  ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg'],
         'gray':  ['gray_1.jpg', 'gray_2.jpg', 'gray_3.jpg', 'gray_4.jpg'],
+        'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg',],
         'black': ['black_1.jpg', 'black_2.jpg', 'black_3.jpg', 'black_4.jpg', 'black_5.jpg', 'black_6.jpg'],
+        'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg',],
         'ivory': ['ivory_1.jpg', 'ivory_2.jpg', 'ivory_3.jpg', 'ivory_4.jpg', 'ivory_5.jpg', 'ivory_6.jpg']
     };
 
@@ -301,10 +332,8 @@
         activeColorName = name;
         imgIdx = 0;
         
-        // Оновлюємо текст скрізь (і на мобільному, і на десктопі)
         document.querySelectorAll('.colorNameDisplay').forEach(el => el.innerText = name);
         
-        // Оновлюємо кружечки скрізь
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.color-'+key).forEach(c => c.classList.add('active'));
         
@@ -315,7 +344,6 @@
     function updateGallery() {
         const imgs = productImages[activeColorKey];
         
-        // Плавна анімація
         mainImageEl.style.opacity = '0.3';
         setTimeout(() => {
             mainImageEl.src = imgs[imgIdx];
@@ -337,6 +365,11 @@
         const imgs = productImages[activeColorKey];
         imgIdx = (imgIdx + s + imgs.length) % imgs.length;
         updateGallery();
+    }
+
+    // Функція пролистування відгуків для комп'ютера
+    function slideReviews(direction) {
+        document.getElementById('reviewsSlider').scrollBy({ left: direction * 370, behavior: 'smooth' });
     }
 
     function selectSize(btn) {
