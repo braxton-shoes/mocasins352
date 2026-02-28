@@ -371,6 +371,9 @@
         document.querySelectorAll('.color-showcase-item').forEach(i => i.classList.toggle('active', i.classList.contains('showcase-'+key)));
         
         updateGallery();
+
+        // Плавная прокрутка в самый верх страницы
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function updateGallery() {
