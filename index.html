@@ -26,7 +26,8 @@
         
         .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
         .main-image-container { width: 100%; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.1); touch-action: pan-y; cursor: crosshair; }
-        .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.1s ease, opacity 0.2s ease; pointer-events: none; }
+        /* Добавлена плавная трансформация для лупы */
+        .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
 
         .photo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(255,255,255,0.8); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #333; z-index: 5; opacity: 0; transition: 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .main-image-container:hover .photo-nav { opacity: 1; }
@@ -59,21 +60,28 @@
         .color-gray { background-color: #8a8d91; } 
         .color-black { background-color: #222; } 
         .color-ivory { background-color: #fffff0; }
-        .color-brown { background-color: #6b4e31; } /* Новий колір: Коричнева замша */
-        .color-black_smooth { background-color: #0f0f0f; border: 1px solid #555; } /* Новий колір: Чорна гладка шкіра */
+        .color-brown { background-color: #6b4e31; }
+        .color-black_smooth { background-color: #0f0f0f; border: 1px solid #555; }
 
         .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
         .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
         .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: bold; }
 
+        /* Кнопка с анимацией пульсации */
+        @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} 50% {transform: scale(1.02); box-shadow: 0 0 15px rgba(17,17,17,0.3);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(17,17,17,0);} }
         .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .buy-btn:hover { background-color: #b17b44; transform: translateY(-2px); }
+        .buy-btn:hover { background-color: #b17b44; }
+        .pulse-btn { animation: pulse 2.5s infinite; }
 
         .delivery-info { background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; padding: 25px; margin-top: 20px; }
         .delivery-info h3 { font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .delivery-item { margin-bottom: 15px; padding-left: 35px; position: relative; font-size: 14px; line-height: 1.4; }
         .delivery-item::before { position: absolute; left: 0; font-size: 20px; }
         .icon-box::before { content: '📦'; } .icon-card::before { content: '💳'; } .icon-return::before { content: '🔄'; }
+
+        /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
+        .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
         /* БЛОК ПРО КОМПАНІЮ */
         .about-section { background-color: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; margin-top: 60px; }
@@ -91,10 +99,8 @@
         .color-showcase-item span { display: block; margin-top: 10px; font-size: 14px; font-weight: 500; color: #444; }
 
         /* ВІДГУКИ */
-        .reviews-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; position: relative; }
+        .reviews-section { max-width: 1200px; margin: 60px auto 40px; padding: 0 20px; position: relative; }
         .reviews-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: bold; }
-        
-        /* Стилі для стрілочок слайдера відгуків */
         .slider-wrapper { position: relative; display: flex; align-items: center; }
         .reviews-slider { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; width: 100%; }
         .reviews-slider::-webkit-scrollbar { display: none; }
@@ -108,12 +114,15 @@
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); }
-        .modal-content { background: #fff; padding: 30px; border-radius: 15px; max-width: 500px; width: 100%; position: relative; text-align: center; }
+        .modal-content { background: #fff; padding: 30px; border-radius: 15px; max-width: 500px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; }
         .form-group { text-align: left; margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #555; }
         .form-group input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; }
         .form-group input:focus { border-color: #111; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
+
+        /* ЛИПКАЯ КНОПКА ДЛЯ ТЕЛЕФОНА */
+        .mobile-sticky-btn { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 10px 15px 15px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); z-index: 1000; }
 
         /* КЛАСИ ДЛЯ МОБІЛЬНИХ/ДЕСКТОПУ */
         .mobile-only { display: none; }
@@ -123,10 +132,14 @@
             .review-card { flex: 0 0 85%; }
             .color-showcase-item { flex: 0 1 calc(50% - 10px); }
             .photo-nav { opacity: 1; width: 35px; height: 35px; background: rgba(255,255,255,0.6); }
-            .nav-btn { display: none; } /* Ховаємо стрілки відгуків на телефоні (там є свайп) */
+            .nav-btn { display: none; } 
             
             .mobile-only { display: block; }
             .desktop-only { display: none; }
+
+            /* Включаем липкую кнопку и добавляем отступ снизу, чтобы она не перекрывала сайт */
+            .mobile-sticky-btn { display: block; }
+            body { padding-bottom: 80px; }
         }
     </style>
 </head>
@@ -160,7 +173,7 @@
 
     <div class="product-info">
         <h1>Літні чоловічі мокасини (з перфорацією)</h1>
-        <div class="price">2 400 ₴</div>
+        <div class="price">2 450 ₴</div>
         
         <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
 
@@ -197,7 +210,7 @@
             <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
         </div>
 
-        <button class="buy-btn" onclick="openOrderModal()">Оформити замовлення</button>
+        <button class="buy-btn pulse-btn" onclick="openOrderModal()">Оформити замовлення</button>
 
         <div class="delivery-info">
             <h3>ДОСТАВКА ТА ОПЛАТА</h3>
@@ -208,7 +221,7 @@
     </div>
 </div>
 
-<div class="about-section">
+<div class="about-section fade-in-section">
     <div class="about-content">
         <h2>ПРО КОМПАНІЮ</h2>
         <p>Braxton shoes — українська компанія з характером. Ми поєднуємо традиції ремесла з сучасним підходом до якості на кожному етапі: від розробки моделі до фінального виробу.</p>
@@ -217,7 +230,7 @@
     </div>
 </div>
 
-<div class="color-showcase-section">
+<div class="color-showcase-section fade-in-section">
     <h2 class="reviews-title">Також дивіться інші кольори</h2>
     <div class="color-showcase-grid">
         <div class="color-showcase-item showcase-latte active" onclick="selectColor('Латте (нубук)', 'latte')">
@@ -244,7 +257,7 @@
     </div>
 </div>
 
-<div class="reviews-section">
+<div class="reviews-section fade-in-section">
     <h2 class="reviews-title">Відгуки наших покупців</h2>
     <div class="slider-wrapper">
         <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
@@ -257,6 +270,10 @@
         </div>
         <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
+</div>
+
+<div class="mobile-sticky-btn">
+    <button class="buy-btn pulse-btn" style="padding: 15px; font-size: 16px;" onclick="openOrderModal()">Оформити замовлення</button>
 </div>
 
 <div id="orderModal" class="modal">
@@ -286,6 +303,7 @@
             <div style="font-size: 50px">✅</div>
             <h3 style="color: green">Дякуємо!</h3>
             <p>Замовлення прийнято. Очікуйте повідомлення з ТТН.</p>
+            <button class="buy-btn" style="margin-top:20px; background:#555" onclick="closeOrderModal()">Закрити</button>
         </div>
     </div>
 </div>
@@ -299,14 +317,13 @@
 </div>
 
 <script>
-    // Додано два нові масиви для "brown" (Коричнева замша) та "black_smooth" (Чорна гладка шкіра)
     const productImages = {
         'latte': ['latte_1.jpg', 'latte_2.jpg', 'latte_3.jpg', 'latte_4.jpg', 'latte_5.jpg', 'latte_6.jpg'],
         'blue':  ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg'],
         'gray':  ['gray_1.jpg', 'gray_2.jpg', 'gray_3.jpg', 'gray_4.jpg'],
         'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg',],
         'black': ['black_1.jpg', 'black_2.jpg', 'black_3.jpg', 'black_4.jpg', 'black_5.jpg', 'black_6.jpg'],
-        'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg',],
+        'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg'],
         'ivory': ['ivory_1.jpg', 'ivory_2.jpg', 'ivory_3.jpg', 'ivory_4.jpg', 'ivory_5.jpg', 'ivory_6.jpg']
     };
 
@@ -318,7 +335,22 @@
     const mainImageEl = document.getElementById('mainImage');
     const swipeArea = document.getElementById('swipeArea');
 
-    // Свайп для телефону
+    // ЭФФЕКТ ЛУПЫ (ЗУМ НА ПК)
+    swipeArea.addEventListener('mousemove', (e) => {
+        if(window.innerWidth > 768) {
+            const rect = swipeArea.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width * 100;
+            const y = (e.clientY - rect.top) / rect.height * 100;
+            mainImageEl.style.transformOrigin = `${x}% ${y}%`;
+            mainImageEl.style.transform = "scale(1.8)";
+        }
+    });
+    swipeArea.addEventListener('mouseleave', () => {
+        mainImageEl.style.transformOrigin = "center center";
+        mainImageEl.style.transform = "scale(1)";
+    });
+
+    // Свайп для телефона
     let ts = 0;
     swipeArea.addEventListener('touchstart', e => { ts = e.changedTouches[0].screenX; }, {passive: true});
     swipeArea.addEventListener('touchend', e => { 
@@ -327,17 +359,27 @@
         if (te > ts + 40) changeImageByStep(-1);
     }, {passive: true});
 
+    // ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+
     function selectColor(name, key) {
         activeColorKey = key;
         activeColorName = name;
         imgIdx = 0;
         
         document.querySelectorAll('.colorNameDisplay').forEach(el => el.innerText = name);
-        
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.color-'+key).forEach(c => c.classList.add('active'));
-        
         document.querySelectorAll('.color-showcase-item').forEach(i => i.classList.toggle('active', i.classList.contains('showcase-'+key)));
+        
         updateGallery();
     }
 
@@ -367,7 +409,6 @@
         updateGallery();
     }
 
-    // Функція пролистування відгуків для комп'ютера
     function slideReviews(direction) {
         document.getElementById('reviewsSlider').scrollBy({ left: direction * 370, behavior: 'smooth' });
     }
@@ -380,7 +421,13 @@
     }
 
     function openOrderModal() { if(!activeSize) { alert('Будь ласка, оберіть розмір!'); return; } document.getElementById('orderModal').style.display = 'flex'; }
-    function closeOrderModal() { document.getElementById('orderModal').style.display = 'none'; }
+    function closeOrderModal() { 
+        document.getElementById('orderModal').style.display = 'none'; 
+        setTimeout(() => {
+            document.querySelector('form').style.display = 'block';
+            document.getElementById('successMsg').style.display = 'none';
+        }, 300);
+    }
     function toggleSizeModal(s) { document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; }
 
     function sendFinalOrder(e) {
@@ -394,7 +441,7 @@
         const city = document.getElementById('custCity').value;
         const post = document.getElementById('custPost').value;
 
-        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2450 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         
@@ -406,10 +453,10 @@
             return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
         }))
         .then(() => {
-            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2400, currency: 'UAH', content_name: activeColorName});
+            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2450, currency: 'UAH', content_name: activeColorName});
             document.querySelector('form').style.display = 'none';
             document.getElementById('successMsg').style.display = 'block';
-            setTimeout(closeOrderModal, 4000);
+            // Не закрываем автоматически, чтобы клиент точно увидел галочку. Клиент закроет сам кнопкой "Закрити".
         })
         .catch(() => {
             alert('Помилка зв\'язку. Спробуйте ще раз!');
