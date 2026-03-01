@@ -278,19 +278,23 @@
         <form onsubmit="sendFinalOrder(event)">
             <div class="form-group">
                 <label>Прізвище та Ім'я *</label>
-                <input type="text" id="custName" required>
+                <input type="text" id="custName" required placeholder="Наприклад: Іваненко Іван">
             </div>
             <div class="form-group">
                 <label>Номер телефону *</label>
-                <input type="tel" id="custPhone" required placeholder="+380...">
+                <input type="tel" id="custPhone" required placeholder="+38 099 123 45 67">
             </div>
             <div class="form-group">
                 <label>Населений пункт *</label>
-                <input type="text" id="custCity" required>
+                <input type="text" id="custCity" required placeholder="Наприклад: м. Харків">
             </div>
             <div class="form-group">
                 <label>Відділення та адреса Нової пошти або УкрПошти \ Поштомат *</label>
-                <input type="text" id="custPost" required>
+                <input type="text" id="custPost" required placeholder="Наприклад: Нова Пошта, відділення №15">
+            </div>
+            <div class="form-group">
+                <label>Коментар до замовлення (необов'язково)</label>
+                <input type="text" id="custComment" placeholder="Якщо потрібна друга пара - напишіть тут колір і розмір">
             </div>
             <button type="submit" class="buy-btn" id="subBtn">Підтвердити замовлення</button>
         </form>
@@ -461,8 +465,15 @@
         const phone = document.getElementById('custPhone').value;
         const city = document.getElementById('custCity').value;
         const post = document.getElementById('custPost').value;
+        const comment = document.getElementById('custComment').value; // Зчитуємо коментар
 
-        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2450 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+        // Формуємо базовий текст ДЛЯ МОКАСИН
+        let text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2450 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+
+        // Якщо людина щось написала в коментар, додаємо це до повідомлення
+        if (comment.trim() !== "") {
+            text += `\nКоментар: ${comment}`;
+        }
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         
