@@ -165,7 +165,7 @@
 
     <div class="product-info">
         <h1>Літні чоловічі мокасини (з перфорацією)</h1>
-        <div class="price">2 450 ₴</div>
+        <div class="price">2 550 ₴</div>
         
         <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
 
@@ -468,7 +468,7 @@
         const comment = document.getElementById('custComment').value; // Зчитуємо коментар
 
         // Формуємо базовий текст ДЛЯ МОКАСИН
-        let text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2450 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+        let text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2550 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
 
         // Якщо людина щось написала в коментар, додаємо це до повідомлення
         if (comment.trim() !== "") {
@@ -485,7 +485,7 @@
             return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
         }))
         .then(() => {
-            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2450, currency: 'UAH', content_name: activeColorName});
+            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2550, currency: 'UAH', content_name: activeColorName});
             document.querySelector('form').style.display = 'none';
             document.getElementById('successMsg').style.display = 'block';
         })
