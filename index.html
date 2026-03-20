@@ -1,10 +1,9 @@
-
-
-
-
+<!DOCTYPE html>
+<html lang="uk">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Туфлі Braxton з натуральної шк | BRAXTON Legacy</title>
+    <title>Літні мокасини | BRAXTON Legacy</title>
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -49,21 +48,25 @@
         .features li::before { content: '✓'; color: #b17b44; position: absolute; left: 0; font-weight: bold; }
 
         .selector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .selector-title { font-weight: bold; color: #222; font-size: 15px; margin-bottom: 8px; display: block; }
+        .selector-title { font-weight: bold; color: #222; font-size: 15px; }
         .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 500; }
         
         .color-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
         .color-circle { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; }
-        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.15); border-width: 3px; }
-        
-        /* ЗГЕНЕРОВАНІ КОЛЬОРИ */
-        .color-color_0 { background: #111111; }
-
+        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .color-latte { background-color: #c2a37f; } 
+        .color-blue { background-color: #2c3e50; } 
+        .color-gray { background-color: #8a8d91; } 
+        .color-black { background-color: #222; } 
+        .color-ivory { background-color: #fffff0; }
+        .color-brown { background-color: #6b4e31; }
+        .color-black_smooth { background-color: #0f0f0f; border: 1px solid #555; }
 
         .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
         .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
         .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: bold; }
 
+        /* АНИМАЦИЯ ПУЛЬСАЦИИ */
         @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} 50% {transform: scale(1.02); box-shadow: 0 0 15px rgba(17,17,17,0.3);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(17,17,17,0);} }
         .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .buy-btn:hover { background-color: #b17b44; }
@@ -75,15 +78,18 @@
         .delivery-item::before { position: absolute; left: 0; font-size: 20px; }
         .icon-box::before { content: '📦'; } .icon-card::before { content: '💳'; } .icon-return::before { content: '🔄'; }
 
+        /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ */
         .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
+        /* БЛОК ПРО КОМПАНІЮ */
         .about-section { background-color: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; margin-top: 60px; }
         .about-content { max-width: 800px; margin: 0 auto; }
         .about-content h2 { font-size: 28px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; color: #b17b44; }
         .about-content p { font-size: 17px; line-height: 1.8; color: #ccc; margin-bottom: 15px; }
         .about-footer { font-weight: bold; color: #fff; font-size: 18px; margin-top: 20px; font-style: italic; }
 
+        /* ІНШІ КОЛЬОРИ */
         .color-showcase-section { max-width: 1200px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
         .color-showcase-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
         .color-showcase-item { flex: 0 1 180px; cursor: pointer; transition: 0.3s; }
@@ -91,6 +97,7 @@
         .color-showcase-item.active img { border-color: #b17b44; }
         .color-showcase-item span { display: block; margin-top: 10px; font-size: 14px; font-weight: 500; color: #444; }
 
+        /* ВІДГУКИ */
         .reviews-section { max-width: 1200px; margin: 60px auto 40px; padding: 0 20px; position: relative; }
         .reviews-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: bold; }
         .slider-wrapper { position: relative; display: flex; align-items: center; }
@@ -101,8 +108,10 @@
         
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: #fff; border: 1px solid #eee; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 18px; color: #333; transition: 0.3s; }
         .nav-btn:hover { background: #111; color: #fff; }
-        .prev-btn { left: -22.5px; } .next-btn { right: -22.5px; }
+        .prev-btn { left: -22.5px; } 
+        .next-btn { right: -22.5px; }
 
+        /* МОДАЛКА */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); }
         .modal-content { background: #fff; padding: 30px; border-radius: 15px; max-width: 500px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; }
         .form-group { text-align: left; margin-bottom: 15px; }
@@ -111,18 +120,22 @@
         .form-group input:focus { border-color: #111; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
 
+        /* КЛАСИ ДЛЯ МОБІЛЬНИХ/ДЕСКТОПУ */
         .mobile-only { display: none; }
         @media (max-width: 768px) {
             .container { margin: 0; border-radius: 0; flex-direction: column; }
             .product-gallery, .product-info { padding: 25px; }
             .review-card { flex: 0 0 85%; }
+            .color-showcase-item { flex: 0 1 calc(50% - 10px); }
+            .photo-nav { opacity: 1; width: 35px; height: 35px; background: rgba(255,255,255,0.6); }
             .nav-btn { display: none; } 
+            
             .mobile-only { display: block; }
             .desktop-only { display: none; }
         }
     </style>
-
-
+</head>
+<body>
 
 <header>BRAXTON Legacy</header>
 
@@ -135,10 +148,15 @@
         </div>
 
         <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
-            <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44">Чорна замша N344zb</span></span>
+            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук) NL352L</span></span>
             <div class="color-options" style="justify-content: center; margin-top: 10px;">
-                <div class="color-circle color-color_0 active" onclick="selectColor('Чорна замша N344zb', 'color_0')" title="Чорна замша N344zb"></div>
-
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук) NL352L', 'latte')" title="Латте (нубук) NL352L"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша NL352zsib', 'blue')" title="Синя замша NL352zsib"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша NL352gz', 'gray')" title="Сіра замша NL352gz"></div>
+                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша NL352zbr', 'brown')" title="Коричнева замша NL352zbr"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра NL352f', 'black')" title="Чорна шкіра NL352f"></div>
+                <div class="color-circle color-black_smooth" onclick="selectColor('Чорна гладка шкіра NL352', 'black_smooth')" title="Чорна гладка шкіра NL352"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка NL352w', 'ivory')" title="Слонова кістка NL352w"></div>
             </div>
         </div>
 
@@ -146,22 +164,33 @@
     </div>
 
     <div class="product-info">
-        <h1>Туфлі Braxton з натуральної шкіри та замші</h1>
-        <div class="price">2600 ₴</div>
+        <h1>Літні чоловічі мокасини (з перфорацією)</h1>
+        <div class="price">2 550 ₴</div>
         
-        <p class="description">Елегантні та комфортні туфлі на кожен день. Виконані повністю з преміальних натуральних матеріалів для максимальної зручності.</p>
+        <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
+
+        <ul class="features">
+            <li><strong>Матеріали:</strong> Натуральний нубук, замша або шкіра</li>
+            <li><strong>Підошва:</strong> Гнучка, зносостійка (ТЕП)</li>
+            <li><strong>Виробництво:</strong> Україна (BRAXTON Legacy)</li>
+        </ul>
 
         <div class="desktop-only">
-            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay" style="color:#b17b44">Чорна замша N344zb</span></span>
+            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Латте (нубук) NL352L</span></span>
             <div class="color-options">
-                <div class="color-circle color-color_0 active" onclick="selectColor('Чорна замша N344zb', 'color_0')" title="Чорна замша N344zb"></div>
-
+                <div class="color-circle color-latte active" onclick="selectColor('Латте (нубук) NL352L', 'latte')" title="Латте (нубук) NL352L"></div>
+                <div class="color-circle color-blue" onclick="selectColor('Синя замша NL352zsib', 'blue')" title="Синя замша NL352zsib"></div>
+                <div class="color-circle color-gray" onclick="selectColor('Сіра замша NL352gz', 'gray')" title="Сіра замша NL352gz"></div>
+                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша NL352zbr', 'brown')" title="Коричнева замша NL352zbr"></div>
+                <div class="color-circle color-black" onclick="selectColor('Чорна шкіра NL352f', 'black')" title="Чорна шкіра NL352f"></div>
+                <div class="color-circle color-black_smooth" onclick="selectColor('Чорна гладка шкіра NL352', 'black_smooth')" title="Чорна гладка шкіра NL352"></div>
+                <div class="color-circle color-ivory" onclick="selectColor('Слонова кістка NL352w', 'ivory')" title="Слонова кістка NL352w"></div>
             </div>
         </div>
 
-        <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin-bottom: 10px; transition: 0.5s;">
+        <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin: -10px -10px 10px -10px; transition: background-color 0.5s ease;">
             <div class="selector-header">
-                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal; color:#b17b44">не обрано</span></span>
+                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal">не обрано</span></span>
                 <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
             </div>
             <div class="size-options">
@@ -179,7 +208,7 @@
 
         <div class="delivery-info">
             <h3>ДОСТАВКА ТА ОПЛАТА</h3>
-            <div class="delivery-item icon-box"><strong>Доставка по Україні:</strong> Новою Поштою або Укрпоштою. Якщо розмір є в наявності — відправка протягом 1-3 днів. Виготовлення під замовлення — до 7 днів.</div>
+            <div class="delivery-item icon-box"><strong>Доставка по Україні:</strong> Новою Поштою або Укрпоштою. Взуття в наявності відправляємо за 1-3 дні. Якщо потрібного розміру немає, ми виготовимо його для вас протягом 7 днів.</div>
             <div class="delivery-item icon-card"><strong>Оплата при отриманні:</strong> Жодних передоплат. Ви міряєте взуття у відділенні та оплачуєте після примірки.</div>
             <div class="delivery-item icon-return"><strong>Гарантія:</strong> Обмін або повернення грошей протягом 14 днів.</div>
         </div>
@@ -198,11 +227,33 @@
 <div class="color-showcase-section fade-in-section">
     <h2 class="reviews-title">Також дивіться інші кольори</h2>
     <div class="color-showcase-grid">
-        <div class="color-showcase-item showcase-color_0 active" onclick="selectColor('Чорна замша N344zb', 'color_0')">
-            <img src='DSC_0333.jpg' onerror="this.style.display='none'"><span>Чорна замша</span>
+        <div class="color-showcase-item showcase-latte active" onclick="selectColor('Латте (нубук) NL352L', 'latte')">
+            <img src="latte_1.jpg"><span>Латте (нубук) NL352L</span>
         </div>
-
+        <div class="color-showcase-item showcase-blue" onclick="selectColor('Синя замша NL352zsib', 'blue')">
+            <img src="blue_1.jpg"><span>Синя замша NL352zsib</span>
+        </div>
+        <div class="color-showcase-item showcase-gray" onclick="selectColor('Сіра замша NL352gz', 'gray')">
+            <img src="gray_1.jpg"><span>Сіра замша NL352gz</span>
+        </div>
+        <div class="color-showcase-item showcase-brown" onclick="selectColor('Коричнева замша NL352zbr', 'brown')">
+            <img src="brown_1.jpg"><span>Коричнева замша NL352zbr</span>
+        </div>
+        <div class="color-showcase-item showcase-black" onclick="selectColor('Чорна шкіра NL352f', 'black')">
+            <img src="black_1.jpg"><span>Чорна шкіра NL352f</span>
+        </div>
+        <div class="color-showcase-item showcase-black_smooth" onclick="selectColor('Чорна гладка шкіра NL352', 'black_smooth')">
+            <img src="black_smooth_1.jpg"><span>Чорна гладка шкіра NL352</span>
+        </div>
+        <div class="color-showcase-item showcase-ivory" onclick="selectColor('Слонова кістка NL352w', 'ivory')">
+            <img src="ivory_1.jpg"><span>Слонова кістка NL352w</span>
+        </div>
     </div>
+</div>
+
+<div class="fade-in-section" style="max-width: 1200px; margin: 20px auto 60px; padding: 0 20px; text-align: center;">
+    <h2 class="reviews-title" style="margin-bottom: 30px;">Уся колекція</h2>
+    <img src="all_colors.jpg" style="width: 100%; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: block;">
 </div>
 
 <div class="reviews-section fade-in-section">
@@ -210,12 +261,11 @@
     <div class="slider-wrapper">
         <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
         <div class="reviews-slider" id="reviewsSlider">
-            <div class="review-card"><img src="review_1.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_2.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_3.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_4.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_5.jpg" onerror="this.style.display='none'"></div>
-
+            <div class="review-card"><img src="review_1.jpg"></div>
+            <div class="review-card"><img src="review_2.jpg"></div>
+            <div class="review-card"><img src="review_3.jpg"></div>
+            <div class="review-card"><img src="review_4.jpg"></div>
+            <div class="review-card"><img src="review_5.jpg"></div>
         </div>
         <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
@@ -223,61 +273,68 @@
 
 <div id="orderModal" class="modal">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeOrderModal()">×</span>
+        <span class="close-modal" onclick="closeOrderModal()">&times;</span>
         <h3 style="margin-bottom: 25px">Оформлення замовлення</h3>
         <form onsubmit="sendFinalOrder(event)">
             <div class="form-group">
                 <label>Прізвище та Ім'я *</label>
-                <input type="text" id="custName" required="" placeholder="Іваненко Іван">
+                <input type="text" id="custName" required placeholder="Наприклад: Іваненко Іван">
             </div>
             <div class="form-group">
                 <label>Номер телефону *</label>
-                <input type="tel" id="custPhone" required="" placeholder="+38 (099) 123 45 67">
+                <input type="tel" id="custPhone" required placeholder="+38 099 123 45 67">
             </div>
             <div class="form-group">
                 <label>Населений пункт *</label>
-                <input type="text" id="custCity" required="" placeholder="м. Київ">
+                <input type="text" id="custCity" required placeholder="Наприклад: м. Харків">
             </div>
             <div class="form-group">
-                <label>Відділення пошти *</label>
-                <input type="text" id="custPost" required="" placeholder="Нова Пошта №15">
+                <label>Відділення та адреса Нової пошти або УкрПошти \ Поштомат *</label>
+                <input type="text" id="custPost" required placeholder="Наприклад: Нова Пошта, відділення №15">
             </div>
             <div class="form-group">
-                <label>Коментар (необов'язково)</label>
-                <input type="text" id="custComment" placeholder="Побажання до замовлення">
+                <label>Коментар до замовлення (необов'язково)</label>
+                <input type="text" id="custComment" placeholder="Якщо потрібна друга пара - напишіть тут колір і розмір">
             </div>
             <button type="submit" class="buy-btn" id="subBtn">Підтвердити замовлення</button>
         </form>
         <div id="successMsg" style="display:none; padding: 20px 0;">
             <div style="font-size: 50px">✅</div>
             <h3 style="color: green">Дякуємо!</h3>
-            <p>Ми зв'яжемося з вами найближчим часом.</p>
+            <p>Замовлення прийнято. Очікуйте повідомлення з ТТН.</p>
+            <button class="buy-btn" style="margin-top:20px; background:#555" onclick="closeOrderModal()">Закрити</button>
         </div>
     </div>
 </div>
 
 <div id="sizeGuideModal" class="modal" onclick="toggleSizeModal(false)">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="toggleSizeModal(false)">×</span>
+        <span class="close-modal" onclick="toggleSizeModal(false)">&times;</span>
         <h3>Таблиця розмірів</h3>
-        <img src="size-guide.jpg" alt="Таблиця розмірів" style="width: 100%; height: auto; border-radius: 8px; margin-top: 15px; display: block;">
+        <img src="size-guide.jpg" style="width:100%; margin-top:15px">
     </div>
 </div>
 
 <script>
     const productImages = {
-        'color_0': ['DSC_0333.jpg','DSC_0334.jpg','DSC_0335.jpg','DSC_0336.jpg','DSC_0332.jpg','DSC_0331.jpg','DSC_0330.jpg'],
-
+        'latte': ['latte_1.jpg', 'latte_2.jpg', 'latte_3.jpg', 'latte_4.jpg', 'latte_5.jpg', 'latte_6.jpg'],
+        'blue':  ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg'],
+        'gray':  ['gray_1.jpg', 'gray_2.jpg', 'gray_3.jpg', 'gray_4.jpg'],
+        'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg'],
+        'black': ['black_1.jpg', 'black_2.jpg', 'black_3.jpg', 'black_4.jpg', 'black_5.jpg', 'black_6.jpg'],
+        'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg'],
+        'ivory': ['ivory_1.jpg', 'ivory_2.jpg', 'ivory_3.jpg', 'ivory_4.jpg', 'ivory_5.jpg', 'ivory_6.jpg']
     };
 
-    let activeColorKey = 'color_0';
-    let activeColorName = 'Чорна замша N344zb';
+    let activeColorKey = 'latte';
+    let activeColorName = 'Латте (нубук) NL352L';
     let activeSize = '';
     let imgIdx = 0;
 
     const mainImageEl = document.getElementById('mainImage');
     const swipeArea = document.getElementById('swipeArea');
 
+    // ЭФФЕКТ ЛУПЫ (ЗУМ НА ПК)
     swipeArea.addEventListener('mousemove', (e) => {
         if(window.innerWidth > 768) {
             const rect = swipeArea.getBoundingClientRect();
@@ -292,6 +349,7 @@
         mainImageEl.style.transform = "scale(1)";
     });
 
+    // Свайп для телефона
     let ts = 0;
     swipeArea.addEventListener('touchstart', e => { ts = e.changedTouches[0].screenX; }, {passive: true});
     swipeArea.addEventListener('touchend', e => { 
@@ -300,24 +358,36 @@
         if (te > ts + 40) changeImageByStep(-1);
     }, {passive: true});
 
+    // ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+
     function selectColor(name, key) {
         activeColorKey = key;
         activeColorName = name;
         imgIdx = 0;
+        
         document.querySelectorAll('.colorNameDisplay').forEach(el => el.innerText = name);
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.color-'+key).forEach(c => c.classList.add('active'));
+        document.querySelectorAll('.color-showcase-item').forEach(i => i.classList.toggle('active', i.classList.contains('showcase-'+key)));
         
-        document.querySelectorAll('.color-showcase-item').forEach(i => i.classList.remove('active'));
-        const showcaseItem = document.querySelector('.showcase-'+key);
-        if(showcaseItem) showcaseItem.classList.add('active');
-
         updateGallery();
-        document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Плавная прокрутка в самый верх страницы
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function updateGallery() {
         const imgs = productImages[activeColorKey];
+        
         mainImageEl.style.opacity = '0.3';
         setTimeout(() => {
             mainImageEl.src = imgs[imgIdx];
@@ -350,28 +420,39 @@
         btn.classList.add('active');
         activeSize = btn.innerText;
         document.getElementById('sizeText').innerText = activeSize;
+        
+        // Убираем подсветку если она была
         document.getElementById('sizeSection').style.backgroundColor = 'transparent';
     }
 
+    // ЛОГИКА АВТОСКРОЛЛА ЕСЛИ НЕ ВЫБРАН РАЗМЕР
     function openOrderModal() { 
         if(!activeSize) { 
+            alert('Будь ласка, оберіть ваш розмір!'); 
+            
+            // Плавный скролл к блоку размеров
             const sizeBlock = document.getElementById('sizeSection');
             sizeBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Легкая красная подсветка на 1.5 секунды
             sizeBlock.style.backgroundColor = '#ffe0e0';
-            setTimeout(() => sizeBlock.style.backgroundColor = 'transparent', 1500);
+            setTimeout(() => {
+                sizeBlock.style.backgroundColor = 'transparent';
+            }, 1500);
+            
             return; 
         } 
-        
-        document.querySelector('#orderModal form').style.display = 'block';
-        document.getElementById('successMsg').style.display = 'none';
-        document.getElementById('subBtn').disabled = false;
-        document.getElementById('subBtn').innerText = 'Підтвердити замовлення';
-        document.querySelector('#orderModal form').reset(); 
-
         document.getElementById('orderModal').style.display = 'flex'; 
     }
 
-    function closeOrderModal() { document.getElementById('orderModal').style.display = 'none'; }
+    function closeOrderModal() { 
+        document.getElementById('orderModal').style.display = 'none'; 
+        setTimeout(() => {
+            document.querySelector('form').style.display = 'block';
+            document.getElementById('successMsg').style.display = 'none';
+        }, 300);
+    }
+    
     function toggleSizeModal(s) { document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; }
 
     function sendFinalOrder(e) {
@@ -381,71 +462,41 @@
         btn.innerText = 'Відправка...';
 
         const name = document.getElementById('custName').value;
-        const rawPhone = document.getElementById('custPhone').value;
+        const phone = document.getElementById('custPhone').value;
         const city = document.getElementById('custCity').value;
         const post = document.getElementById('custPost').value;
-        const comment = document.getElementById('custComment').value;
+        const comment = document.getElementById('custComment').value; // Зчитуємо коментар
 
-        // ПРАВИЛЬНЕ ФОРМАТУВАННЯ ТЕЛЕФОНУ (0991234567)
-        let cleanPhone = rawPhone.replace(/\D/g, ''); 
-        if (cleanPhone.startsWith('380')) cleanPhone = cleanPhone.substring(2);
-        else if (cleanPhone.startsWith('80')) cleanPhone = cleanPhone.substring(1);
-        else if (cleanPhone.length === 9) cleanPhone = '0' + cleanPhone; 
-        
-        let displayPhone = cleanPhone; // Відображається в тексті як 0991234567
-        let linkPhone = "38" + cleanPhone; // Використовується ТІЛЬКИ для кнопок (380991234567)
+        // Формуємо базовий текст ДЛЯ МОКАСИН
+        let text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Мокасини BRAXTON\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2550 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
 
-        function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-
-        let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Туфлі Braxton з натуральної шкіри та замші`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2600 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
-        
-        if (comment.trim() !== "") text += `\nКоментар: ${esc(comment)}`;
-
-        const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
-        const chatsStr = "8345637105, 5137629200, -5150186307";
-        const chatIds = chatsStr.split(',').map(id => id.trim());
-
-        let replyMarkup = '';
-        if (cleanPhone.length >= 10) {
-            const kb = {
-                inline_keyboard: [
-                    [
-                        { text: "💬 Telegram", url: "https://t.me/+" + linkPhone },
-                        { text: "💜 Viber (msng.link)", url: "https://msng.link/vi/" + linkPhone }
-                    ]
-                ]
-            };
-            replyMarkup = "&reply_markup=" + encodeURIComponent(JSON.stringify(kb));
+        // Якщо людина щось написала в коментар, додаємо це до повідомлення
+        if (comment.trim() !== "") {
+            text += `\nКоментар: ${comment}`;
         }
 
+        const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
+        
+        // ТУТ ВАШІ ДВА ID
+        const chatIds = ['8345637105', '-5150186307']; 
+
         Promise.all(chatIds.map(chatId => {
-            return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML${replyMarkup}`)
-                .then(res => res.json())
-                .then(data => {
-                    if (!data.ok) console.error('Telegram error:', data.description);
-                    return data.ok; 
-                })
-                .catch(() => false); 
+            if (chatId === 'ID_ДРУГОЇ_ЛЮДИНИ') return Promise.resolve(); 
+            return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
         }))
-        .then(results => {
-            if (results.includes(true)) {
-                if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2600, currency: 'UAH', content_name: 'Туфлі Braxton з натуральної шкіри та замші ' + activeColorName});
-                document.querySelector('#orderModal form').style.display = 'none';
-                document.getElementById('successMsg').style.display = 'block';
-            } else {
-                alert('Помилка! Повідомлення не відправлено. Перевірте Token та ID чатів.');
-                btn.disabled = false;
-                btn.innerText = 'Підтвердити замовлення';
-            }
+        .then(() => {
+            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2550, currency: 'UAH', content_name: activeColorName});
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        })
+        .catch(() => {
+            alert('Помилка зв\'язку. Спробуйте ще раз!');
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
         });
     }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
-
-    selectColor('Чорна замша N344zb', 'color_0');
+    selectColor('Латте (нубук) NL352L', 'latte');
 </script>
-
-
+</body>
+</html>
