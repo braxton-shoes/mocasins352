@@ -18,19 +18,14 @@
     fbq('init', '803291489486527'); 
     fbq('track', 'PageView');
     </script>
-<!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
-  ttq.load('D70IBKJC77U40DKB0MIG');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
+    
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      ttq.load('D70IBKJC77U40DKB0MIG');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: #fcfcfc; color: #333; line-height: 1.6; }
@@ -369,7 +364,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         updateGallery();
         document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        // 🔥 ЗМІНА URL БЕЗ ПЕРЕЗАВАНТАЖЕННЯ 🔥
         if (history.replaceState) {
             const variantNum = parseInt(key.split('_')[1]) + 1;
             const url = new URL(window.location);
@@ -497,7 +491,12 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         }))
         .then(results => {
             if (results.includes(true)) {
+                // Відправляємо успішну подію у Фейсбук
                 if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2550, currency: 'UAH', content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName});
+                
+                // Відправляємо успішну подію у TikTok
+                if(typeof ttq !== 'undefined') ttq.track('CompletePayment', {value: 2550, currency: 'UAH', contents: [{content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName}]});
+                
                 document.querySelector('#orderModal form').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
             } else {
@@ -513,7 +512,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
 
-    // Автоматичне відкриття потрібного кольору при завантаженні
     const urlParams = new URLSearchParams(window.location.search);
     const variantIndex = urlParams.get('v');
     
