@@ -356,6 +356,14 @@
 
         updateGallery();
         document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // 🔥 ЗМІНА URL БЕЗ ПЕРЕЗАВАНТАЖЕННЯ 🔥
+        if (history.replaceState) {
+            const variantNum = parseInt(key.split('_')[1]) + 1;
+            const url = new URL(window.location);
+            url.searchParams.set('v', variantNum);
+            window.history.replaceState({}, '', url);
+        }
     }
 
     function updateGallery() {
@@ -428,14 +436,20 @@
         const post = document.getElementById('custPost').value;
         const comment = document.getElementById('custComment').value;
 
-        // ПРАВИЛЬНЕ ФОРМАТУВАННЯ ТЕЛЕФОНУ (0991234567)
         let cleanPhone = rawPhone.replace(/\D/g, ''); 
+        if (cleanPhone.length < 9) {
+            alert('❌ Будь ласка, введіть коректний номер телефону!');
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
+            return; 
+        }
+
         if (cleanPhone.startsWith('380')) cleanPhone = cleanPhone.substring(2);
         else if (cleanPhone.startsWith('80')) cleanPhone = cleanPhone.substring(1);
         else if (cleanPhone.length === 9) cleanPhone = '0' + cleanPhone; 
         
-        let displayPhone = cleanPhone; // Відображається в тексті як 0991234567
-        let linkPhone = "38" + cleanPhone; // Використовується ТІЛЬКИ для кнопок (380991234567)
+        let displayPhone = cleanPhone; 
+        let linkPhone = "38" + cleanPhone; 
 
         function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
@@ -487,7 +501,21 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
 
-    selectColor('Латте (нубук) NL352L', 'color_0');
+    // Автоматичне відкриття потрібного кольору при завантаженні
+    const urlParams = new URLSearchParams(window.location.search);
+    const variantIndex = urlParams.get('v');
+    
+    if (variantIndex !== null) {
+        const targetClass = '.color-color_' + (parseInt(variantIndex) - 1);
+        const targetBtn = document.querySelector(targetClass);
+        if (targetBtn) {
+            targetBtn.click();
+        } else {
+            selectColor('Латте (нубук) NL352L', 'color_0');
+        }
+    } else {
+        selectColor('Латте (нубук) NL352L', 'color_0');
+    }
 </script>
 
 
