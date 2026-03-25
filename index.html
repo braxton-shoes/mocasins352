@@ -21,7 +21,9 @@
     
     <script>
     !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
       ttq.load('D70IBKJC77U40DKB0MIG');
       ttq.page();
     }(window, document, 'ttq');
@@ -71,6 +73,7 @@
 .color-color_4 { background: #222; }
 .color-color_5 { background: #0f0f0f; }
 .color-color_6 { background: #fffff0; }
+.color-color_7 { background: #0f0f0f; }
 
 
         .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
@@ -157,6 +160,7 @@
 <div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
 <div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
 <div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
+<div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
 
             </div>
         </div>
@@ -180,6 +184,7 @@
 <div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
 <div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
 <div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
+<div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
 
             </div>
         </div>
@@ -243,6 +248,9 @@
         </div>
 <div class="color-showcase-item showcase-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')">
             <img src='ivory_1.jpg' onerror="this.style.display='none'"><span>Слонова кістка NL352w</span>
+        </div>
+<div class="color-showcase-item showcase-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')">
+            <img src='DSC_0365.jpg' onerror="this.style.display='none'"><span>Чорний нубук NL352N</span>
         </div>
 
     </div>
@@ -316,6 +324,7 @@
 'color_4': ['black_1.jpg','black_2.jpg','black_3.jpg','black_4.jpg','black_5.jpg','black_6.jpg'],
 'color_5': ['black_smooth_1.jpg','black_smooth_2.jpg','black_smooth_3.jpg','black_smooth_4.jpg','black_smooth_5.jpg'],
 'color_6': ['ivory_1.jpg','ivory_2.jpg','ivory_3.jpg','ivory_4.jpg','ivory_5.jpg','ivory_6.jpg'],
+'color_7': ['DSC_0365.jpg','DSC_0358.jpg','DSC_0359.jpg','DSC_0361.jpg','DSC_0363.jpg','DSC_0364.jpg'],
 
     };
 
@@ -492,10 +501,25 @@
         .then(results => {
             if (results.includes(true)) {
                 // Відправляємо успішну подію у Фейсбук
-                if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2550, currency: 'UAH', content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName});
+                if(typeof fbq === 'function') fbq('track', 'Purchase', {
+                    value: Number('2550'), 
+                    currency: 'UAH', 
+                    content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
+                });
                 
-                // Відправляємо успішну подію у TikTok
-                if(typeof ttq !== 'undefined') ttq.track('CompletePayment', {value: 2550, currency: 'UAH', contents: [{content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName}]});
+                // 🔥 Бронебійний код для ТікТок Пікселя 🔥
+                if(window.ttq) {
+                    window.ttq.track('CompletePayment', {
+                        content_type: 'product',
+                        value: Number('2550'),
+                        currency: 'UAH',
+                        contents: [{
+                            content_id: 'braxton_item',
+                            content_type: 'product',
+                            content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
+                        }]
+                    });
+                }
                 
                 document.querySelector('#orderModal form').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
