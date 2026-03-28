@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Літні чоловічі мокасини (з пер | BRAXTON Legacy</title>
+    <meta name="description" content="Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.">
 
+    <!-- Підключення шрифта Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -19,6 +26,7 @@
     fbq('track', 'PageView');
     </script>
     
+    <!-- TikTok Pixel Code -->
     <script>
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -28,44 +36,55 @@
       ttq.page();
     }(window, document, 'ttq');
     </script>
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: #fcfcfc; color: #333; line-height: 1.6; }
-        header { background-color: #1a1a1a; color: #fff; padding: 25px 0; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; position: relative; }
-        .container { max-width: 1200px; margin: 40px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; }
+        
+        header { background-color: #1a1a1a; color: #fff; padding: 18px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; z-index: 10; }
+        .header-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .header-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+        .header-logo span { color: #b17b44; }
+        .header-info { font-size: 13px; color: #ccc; font-weight: 500; display: flex; align-items: center; gap: 8px;}
+        
+        .container { max-width: 1200px; margin: 40px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
         
         .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
-        .main-image-container { width: 100%; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.1); touch-action: pan-y; cursor: crosshair; }
+        .main-image-container { width: 100%; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); touch-action: pan-y; cursor: crosshair; }
         .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
 
-        .photo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(255,255,255,0.8); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #333; z-index: 5; opacity: 0; transition: 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .photo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #111; z-index: 5; opacity: 0; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .main-image-container:hover .photo-nav { opacity: 1; }
         .photo-nav:hover { background: #111; color: #fff; }
-        .photo-prev { left: 10px; } .photo-next { right: 10px; }
+        .photo-prev { left: 15px; } .photo-next { right: 15px; }
 
         .thumbnails-container { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 25px; width: 100%; }
-        .thumbnail { width: 70px; height: 100px; object-fit: cover; border-radius: 4px; cursor: pointer; opacity: 0.6; transition: 0.3s; border: 2px solid transparent; }
-        .thumbnail.active { opacity: 1; border-color: #b17b44; }
+        .thumbnail { width: 70px; height: 100px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; }
+        .thumbnail:hover { opacity: 0.8; }
+        .thumbnail.active { opacity: 1; border-color: #b17b44; box-shadow: 0 4px 10px rgba(177,123,68,0.3); }
 
         .product-info { flex: 1 1 450px; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
-        h1 { font-size: 32px; margin-bottom: 15px; color: #111; line-height: 1.2; }
-        .price { font-size: 30px; color: #111; font-weight: bold; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
-        .price::after { content: 'В наявності'; font-size: 11px; color: #27ae60; border: 1px solid #27ae60; padding: 2px 8px; border-radius: 20px; font-weight: normal; text-transform: uppercase; }
+        h1 { font-size: 32px; margin-bottom: 10px; color: #111; line-height: 1.2; font-weight: 800; }
         
-        .description { margin-bottom: 25px; color: #666; font-size: 16px; }
-        .features { list-style: none; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-        .features li { margin-bottom: 10px; position: relative; padding-left: 25px; font-size: 15px; }
-        .features li::before { content: '✓'; color: #b17b44; position: absolute; left: 0; font-weight: bold; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; font-size: 18px; color: #f1c40f; }
+        .rating .r-val { font-weight: 700; color: #111; font-size: 16px; margin-left: 2px; }
+        .rating .r-count { color: #777; font-size: 14px; font-weight: 500; }
+        
+        .price-wrap { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;}
+        .price { font-size: 34px; color: #d32f2f; font-weight: 800; }
+        .old-price { font-size: 22px; color: #999; text-decoration: line-through; font-weight: 500; }
+        .stock-badge { font-size: 11px; color: #27ae60; border: 1px solid #27ae60; padding: 4px 10px; border-radius: 20px; font-weight: 600; text-transform: uppercase; background: #eefaf2; }
+        
+        .description { margin-bottom: 25px; color: #555; font-size: 16px; line-height: 1.7; }
 
         .selector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .selector-title { font-weight: bold; color: #222; font-size: 15px; margin-bottom: 8px; display: block; }
-        .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 500; }
+        .selector-title { font-weight: 700; color: #222; font-size: 15px; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 600; }
         
         .color-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
-        .color-circle { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; }
-        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.15); border-width: 3px; }
+        .color-circle { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .color-circle.active { border-color: #b17b44; transform: scale(1.15); box-shadow: 0 0 12px rgba(177,123,68,0.4); border-width: 3px; }
         
-        /* ЗГЕНЕРОВАНІ КОЛЬОРИ */
         .color-color_0 { background: #c2a37f; }
 .color-color_1 { background: #2c3e50; }
 .color-color_2 { background: #8a8d91; }
@@ -76,86 +95,129 @@
 .color-color_7 { background: #0f0f0f; }
 
 
-        .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
-        .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
-        .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: bold; }
+        .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 95px; border-radius: 6px; transition: 0.2s; font-size: 14px; text-align: center; font-weight: 500; color: #444; }
+        .size-btn:hover { border-color: #999; }
+        .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-        @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} 50% {transform: scale(1.02); box-shadow: 0 0 15px rgba(17,17,17,0.3);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(17,17,17,0);} }
-        .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .buy-btn:hover { background-color: #b17b44; }
+        @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0.6);} 50% {transform: scale(1.02); box-shadow: 0 0 20px rgba(177,123,68,0.8);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} }
+        .buy-btn { background-color: #b17b44; color: #fff; padding: 22px; text-align: center; font-size: 18px; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(177,123,68,0.3); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .buy-btn:hover { background-color: #9c6835; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(177,123,68,0.4); }
         .pulse-btn { animation: pulse 2.5s infinite; }
 
-        .delivery-info { background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; padding: 25px; margin-top: 20px; }
-        .delivery-info h3 { font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .delivery-item { margin-bottom: 15px; padding-left: 35px; position: relative; font-size: 14px; line-height: 1.4; }
-        .delivery-item::before { position: absolute; left: 0; font-size: 20px; }
+        .trust-badges { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; padding: 18px; border-radius: 8px; border: 1px dashed #ddd; }
+        .trust-badge-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #444; }
+        .trust-badge-item span { font-size: 20px; }
+
+        .delivery-info { background: #fcfcfc; border: 1px dashed #ddd; border-radius: 8px; padding: 22px; margin-top: 25px; }
+        .delivery-info h3 { font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #111; }
+        .delivery-item { margin-bottom: 12px; padding-left: 32px; position: relative; font-size: 14px; line-height: 1.5; color: #444; }
+        .delivery-item:last-child { margin-bottom: 0; }
+        .delivery-item::before { position: absolute; left: 0; top: -2px; font-size: 18px; }
         .icon-box::before { content: '📦'; } .icon-card::before { content: '💳'; } .icon-return::before { content: '🔄'; }
+
+        .faq-section { max-width: 900px; margin: 60px auto 30px; padding: 0 20px; }
+        .faq-title { text-align: center; font-size: 28px; font-weight: 800; margin-bottom: 30px; color: #111; }
+        .faq-item { background: #fff; border: 1px solid #eaeaea; border-radius: 8px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .faq-question { padding: 20px; font-weight: 600; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; transition: background 0.3s; color: #222; }
+        .faq-question:hover { background: #f5f5f5; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; color: #555; font-size: 15px; line-height: 1.7; }
+        .faq-item.active .faq-question { background: #fafafa; border-bottom: 1px solid #eaeaea; color: #b17b44;}
+        .faq-item.active .faq-answer { padding: 20px; max-height: 500px; }
+        .faq-icon { transition: transform 0.3s; font-size: 20px; color: #b17b44; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
 
         .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .about-section { background-color: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; margin-top: 60px; }
-        .about-content { max-width: 800px; margin: 0 auto; }
-        .about-content h2 { font-size: 28px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; color: #b17b44; }
-        .about-content p { font-size: 17px; line-height: 1.8; color: #ccc; margin-bottom: 15px; }
-        .about-footer { font-weight: bold; color: #fff; font-size: 18px; margin-top: 20px; font-style: italic; }
+        .about-section { background-color: #1a1a1a; color: #fff; padding: 70px 20px; text-align: center; margin-top: 60px; position: relative; overflow: hidden; }
+        .about-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+        .about-content h2 { font-size: 30px; margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; color: #b17b44; font-weight: 800; }
+        .about-content p { font-size: 17px; line-height: 1.9; color: #dcdcdc; margin-bottom: 15px; font-weight: 400; }
+        .about-footer { font-weight: 700; color: #fff; font-size: 18px; margin-top: 25px; font-style: italic; letter-spacing: 1px; }
 
-        .color-showcase-section { max-width: 1200px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
-        .color-showcase-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-        .color-showcase-item { flex: 0 1 180px; cursor: pointer; transition: 0.3s; }
-        .color-showcase-item img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 8px; border: 2px solid transparent; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .color-showcase-section { max-width: 1200px; margin: 70px auto 0; padding: 0 20px; text-align: center; }
+        .color-showcase-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .color-showcase-item { flex: 0 1 220px; cursor: pointer; transition: 0.3s; background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
+        .color-showcase-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #e0e0e0; }
+        .color-showcase-item img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 8px; border: 2px solid transparent; transition: 0.3s; }
         .color-showcase-item.active img { border-color: #b17b44; }
-        .color-showcase-item span { display: block; margin-top: 10px; font-size: 14px; font-weight: 500; color: #444; }
+        .color-showcase-item span { display: block; margin-top: 12px; font-size: 14px; font-weight: 600; color: #333; }
 
-        .reviews-section { max-width: 1200px; margin: 60px auto 40px; padding: 0 20px; position: relative; }
-        .reviews-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: bold; }
-        .slider-wrapper { position: relative; display: flex; align-items: center; }
-        .reviews-slider { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; width: 100%; }
+        .reviews-section { max-width: 1200px; margin: 50px auto 40px; padding: 0 20px; position: relative; }
+        .slider-wrapper { position: relative; display: flex; align-items: center; padding: 0 20px; }
+        .reviews-slider { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 20px 0; scrollbar-width: none; width: 100%; }
         .reviews-slider::-webkit-scrollbar { display: none; }
-        .review-card { flex: 0 0 350px; scroll-snap-align: center; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eee; }
+        .review-card { flex: 0 0 320px; scroll-snap-align: center; background: #fff; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #f0f0f0; transition: transform 0.3s; }
+        .review-card:hover { transform: scale(1.02); }
         .review-card img { width: 100%; height: auto; display: block; }
         
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: #fff; border: 1px solid #eee; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 18px; color: #333; transition: 0.3s; }
-        .nav-btn:hover { background: #111; color: #fff; }
-        .prev-btn { left: -22.5px; } .next-btn { right: -22.5px; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: #fff; border: none; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15); font-size: 20px; color: #111; transition: 0.3s; }
+        .nav-btn:hover { background: #b17b44; color: #fff; }
+        .prev-btn { left: -10px; } .next-btn { right: -10px; }
 
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); }
-        .modal-content { background: #fff; padding: 30px; border-radius: 15px; max-width: 500px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; }
-        .form-group { text-align: left; margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #555; }
-        .form-group input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; }
-        .form-group input:focus { border-color: #111; }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+        .modal-content { background: #fff; padding: 35px 30px; border-radius: 16px; max-width: 480px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        
+        .order-summary { background: #fdfaf6; padding: 15px 20px; border-radius: 8px; border-left: 4px solid #b17b44; text-align: left; margin-bottom: 25px; font-size: 14px; color: #444; }
+        .order-summary b { color: #111; }
+        
+        .form-group { text-align: left; margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #444; }
+        .form-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: 0.3s; background: #fafafa; font-family: 'Montserrat', sans-serif;}
+        .form-group input:focus { border-color: #b17b44; background: #fff; box-shadow: 0 0 0 3px rgba(177,123,68,0.1); }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; line-height: 1; }
+        .close-modal:hover { color: #111; transform: rotate(90deg); }
 
         .mobile-only { display: none; }
+        .mobile-sticky-buy { display: none; }
+
         @media (max-width: 768px) {
-            .container { margin: 0; border-radius: 0; flex-direction: column; }
-            .product-gallery, .product-info { padding: 25px; }
+            .container { margin: 0; border-radius: 0; flex-direction: column; box-shadow: none; }
+            .product-gallery, .product-info { padding: 25px 20px; }
+            h1 { font-size: 26px; }
+            .price { font-size: 28px; }
+            .old-price { font-size: 18px; }
             .review-card { flex: 0 0 85%; }
             .nav-btn { display: none; } 
             .mobile-only { display: block; }
             .desktop-only { display: none; }
+            
+            body { padding-bottom: 85px; } 
+            .mobile-sticky-buy {
+                display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff;
+                padding: 12px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); justify-content: space-between;
+                align-items: center; z-index: 1000; gap: 15px; border-top: 1px solid #eee;
+            }
+            .sticky-price { display: flex; flex-direction: column; line-height: 1.1; }
+            .st-old { font-size: 13px; color: #999; text-decoration: line-through; font-weight: 500;}
+            .st-new { font-size: 20px; font-weight: 800; color: #d32f2f; }
+            .mobile-sticky-buy .buy-btn { padding: 14px; margin: 0; width: auto; flex-grow: 1; font-size: 16px; animation: none; box-shadow: none;}
         }
     </style>
 
 
 
-<header style="position: relative;">
-    <a href="https://braxton-shoes.github.io/" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #b17b44; text-decoration: none; font-size: 15px; text-transform: none; letter-spacing: 0; font-weight: 600; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#b17b44'">❮ Назад</a>
-    BRAXTON Legacy
+<header>
+    <div class="header-inner">
+        <a href="https://braxton-shoes.github.io/" style="text-decoration: none; color: inherit;">
+            <div class="header-logo">BRAXTON <span>Legacy</span></div>
+        </a>
+        <div class="header-info desktop-only">⌚ Щодня 10:00 - 20:00</div>
+    </div>
 </header>
 
 <div class="container">
     <div class="product-gallery">
         <div class="main-image-container" id="swipeArea">
             <button class="photo-nav photo-prev" onclick="changeImageByStep(-1)">❮</button>
-            <img id="mainImage" src="">
+            <img id="mainImage" src="" alt="Фото Літні чоловічі мокасини (з перфорацією)">
             <button class="photo-nav photo-next" onclick="changeImageByStep(1)">❯</button>
         </div>
 
         <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
-            <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44">Латте (нубук) NL352L</span></span>
-            <div class="color-options" style="justify-content: center; margin-top: 10px;">
+            <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44; font-weight: 700;">Латте (нубук) NL352L</span></span>
+            <div class="color-options" style="justify-content: center; margin-top: 15px;">
                 <div class="color-circle color-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')" title="Латте (нубук) NL352L"></div>
 <div class="color-circle color-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')" title="Синя замша NL352zsib"></div>
 <div class="color-circle color-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')" title="Сіра замша NL352gz"></div>
@@ -173,7 +235,17 @@
 
     <div class="product-info">
         <h1>Літні чоловічі мокасини (з перфорацією)</h1>
-        <div class="price">2550 ₴</div>
+        
+        
+        <div class="rating">
+            ★★★★★ <span class="r-val">4.9</span> <span class="r-count">(114 відгуків)</span>
+        </div>
+
+        <div class="price-wrap">
+            <span class="old-price">2800 ₴</span>
+            <span class="price">2550 ₴</span>
+            <span class="stock-badge">В наявності</span>
+        </div>
         
         <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
 
@@ -192,9 +264,9 @@
             </div>
         </div>
 
-        <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin-bottom: 10px; transition: 0.5s;">
+        <div id="sizeSection" style="padding: 12px; border-radius: 8px; margin-bottom: 5px; transition: 0.5s;">
             <div class="selector-header">
-                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal; color:#b17b44">не обрано</span></span>
+                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:700; color:#d32f2f">не обрано</span></span>
                 <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
             </div>
             <div class="size-options">
@@ -208,7 +280,7 @@
             </div>
         </div>
 
-        <button class="buy-btn pulse-btn" onclick="openOrderModal()">Оформити замовлення</button>
+        <button class="buy-btn pulse-btn desktop-only" onclick="openOrderModal()">🛒 Оформити замовлення</button>
 
         <div class="delivery-info">
             <h3>ДОСТАВКА ТА ОПЛАТА</h3>
@@ -216,6 +288,79 @@
             <div class="delivery-item icon-card"><strong>Оплата при отриманні:</strong> Жодних передоплат. Ви міряєте взуття у відділенні та оплачуєте після примірки.</div>
             <div class="delivery-item icon-return"><strong>Гарантія:</strong> Обмін або повернення грошей протягом 14 днів.</div>
         </div>
+    </div>
+</div>
+
+<div class="color-showcase-section fade-in-section">
+    <h2 class="reviews-title">Також дивіться інші кольори</h2>
+    <div class="color-showcase-grid">
+        <div class="color-showcase-item showcase-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')">
+            <img src="latte_1.jpg" alt="Латте (нубук) NL352L" onerror="this.style.display='none'"><span>Латте (нубук) NL352L</span>
+        </div>
+<div class="color-showcase-item showcase-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')">
+            <img src="blue_1.jpg" alt="Синя замша NL352zsib" onerror="this.style.display='none'"><span>Синя замша NL352zsib</span>
+        </div>
+<div class="color-showcase-item showcase-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')">
+            <img src="gray_1.jpg" alt="Сіра замша NL352gz" onerror="this.style.display='none'"><span>Сіра замша NL352gz</span>
+        </div>
+<div class="color-showcase-item showcase-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')">
+            <img src="brown_1.jpg" alt="Коричнева замша NL352zbr" onerror="this.style.display='none'"><span>Коричнева замша NL352zbr</span>
+        </div>
+<div class="color-showcase-item showcase-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')">
+            <img src="black_1.jpg" alt="Чорна шкіра NL352f" onerror="this.style.display='none'"><span>Чорна шкіра NL352f</span>
+        </div>
+<div class="color-showcase-item showcase-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')">
+            <img src="black_smooth_1.jpg" alt="Чорна гладка шкіра NL352" onerror="this.style.display='none'"><span>Чорна гладка шкіра NL352</span>
+        </div>
+<div class="color-showcase-item showcase-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')">
+            <img src="ivory_1.jpg" alt="Слонова кістка NL352w" onerror="this.style.display='none'"><span>Слонова кістка NL352w</span>
+        </div>
+<div class="color-showcase-item showcase-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')">
+            <img src="DSC_0365.jpg" alt="Чорний нубук NL352N" onerror="this.style.display='none'"><span>Чорний нубук NL352N</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- Блок FAQ -->
+<div class="faq-section fade-in-section">
+    <h2 class="faq-title">Часті запитання</h2>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Як правильно обрати розмір?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Натисніть на кнопку "Таблиця розмірів" біля вибору розміру. Там вказана інструкція, як правильно виміряти довжину стопи.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Чи можу я повернути товар, якщо він не підійшов?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Так, ви можете зробити обмін або повернення протягом 14 днів з моменту отримання, якщо взуття не має слідів носіння.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Чи потрібно платити передоплату?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Ні, ми відправляємо замовлення післяплатою. Ви міряєте взуття у відділенні пошти, і тільки після цього оплачуєте.</div>
+    </div>
+</div>
+
+<div class="reviews-section fade-in-section">
+    <h2 class="reviews-title">Відгуки наших покупців</h2>
+    <div class="slider-wrapper">
+        <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
+        <div class="reviews-slider" id="reviewsSlider">
+            <div class="review-card"><img src="review_1.jpg" alt="Відгук 1" onerror="this.style.display='none'"></div>
+<div class="review-card"><img src="review_2.jpg" alt="Відгук 2" onerror="this.style.display='none'"></div>
+<div class="review-card"><img src="review_3.jpg" alt="Відгук 3" onerror="this.style.display='none'"></div>
+<div class="review-card"><img src="review_4.jpg" alt="Відгук 4" onerror="this.style.display='none'"></div>
+<div class="review-card"><img src="review_5.jpg" alt="Відгук 5" onerror="this.style.display='none'"></div>
+
+        </div>
+        <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
 </div>
 
@@ -228,65 +373,29 @@
     </div>
 </div>
 
-<div class="color-showcase-section fade-in-section">
-    <h2 class="reviews-title">Також дивіться інші кольори</h2>
-    <div class="color-showcase-grid">
-        <div class="color-showcase-item showcase-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')">
-            <img src='latte_1.jpg' onerror="this.style.display='none'"><span>Латте (нубук) NL352L</span>
-        </div>
-<div class="color-showcase-item showcase-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')">
-            <img src='blue_1.jpg' onerror="this.style.display='none'"><span>Синя замша NL352zsib</span>
-        </div>
-<div class="color-showcase-item showcase-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')">
-            <img src='gray_1.jpg' onerror="this.style.display='none'"><span>Сіра замша NL352gz</span>
-        </div>
-<div class="color-showcase-item showcase-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')">
-            <img src='brown_1.jpg' onerror="this.style.display='none'"><span>Коричнева замша NL352zbr</span>
-        </div>
-<div class="color-showcase-item showcase-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')">
-            <img src='black_1.jpg' onerror="this.style.display='none'"><span>Чорна шкіра NL352f</span>
-        </div>
-<div class="color-showcase-item showcase-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')">
-            <img src='black_smooth_1.jpg' onerror="this.style.display='none'"><span>Чорна гладка шкіра NL352</span>
-        </div>
-<div class="color-showcase-item showcase-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')">
-            <img src='ivory_1.jpg' onerror="this.style.display='none'"><span>Слонова кістка NL352w</span>
-        </div>
-<div class="color-showcase-item showcase-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')">
-            <img src='DSC_0365.jpg' onerror="this.style.display='none'"><span>Чорний нубук NL352N</span>
-        </div>
-
+<div class="mobile-sticky-buy mobile-only">
+    <div class="sticky-price">
+        <span class="st-old">2800 ₴</span>
+        <span class="st-new">2550 ₴</span>
     </div>
+    <button class="buy-btn" onclick="openOrderModal()">🛒 Купити</button>
 </div>
 
-<div class="reviews-section fade-in-section">
-    <h2 class="reviews-title">Відгуки наших покупців</h2>
-    <div class="slider-wrapper">
-        <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
-        <div class="reviews-slider" id="reviewsSlider">
-            <div class="review-card"><img src="review_1.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_2.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_3.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_4.jpg" onerror="this.style.display='none'"></div>
-<div class="review-card"><img src="review_5.jpg" onerror="this.style.display='none'"></div>
-
-        </div>
-        <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
-    </div>
-</div>
-
-<div id="orderModal" class="modal">
-    <div class="modal-content">
+<div id="orderModal" class="modal" onclick="closeOrderModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close-modal" onclick="closeOrderModal()">×</span>
-        <h3 style="margin-bottom: 25px">Оформлення замовлення</h3>
-        <form onsubmit="sendFinalOrder(event)">
+        <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 800;">Оформлення замовлення</h3>
+        
+        <div id="orderSummary" class="order-summary"></div>
+
+        <form onsubmit="sendFinalOrder(event)" id="mainForm">
             <div class="form-group">
                 <label>Прізвище та Ім'я *</label>
                 <input type="text" id="custName" required="" placeholder="Іваненко Іван">
             </div>
             <div class="form-group">
                 <label>Номер телефону *</label>
-                <input type="tel" id="custPhone" required="" placeholder="+38 (099) 123 45 67">
+                <input type="tel" id="custPhone" required="" placeholder="+38 (09X) XXX XX XX" maxlength="20">
             </div>
             <div class="form-group">
                 <label>Населений пункт *</label>
@@ -300,12 +409,13 @@
                 <label>Коментар (необов'язково)</label>
                 <input type="text" id="custComment" placeholder="Побажання до замовлення">
             </div>
-            <button type="submit" class="buy-btn" id="subBtn">Підтвердити замовлення</button>
+            <button type="submit" class="buy-btn" id="subBtn" style="margin-top: 10px;">Підтвердити замовлення</button>
         </form>
-        <div id="successMsg" style="display:none; padding: 20px 0;">
-            <div style="font-size: 50px">✅</div>
-            <h3 style="color: green">Дякуємо!</h3>
-            <p>Ми зв'яжемося з вами найближчим часом.</p>
+        <div id="successMsg" style="display:none; padding: 30px 0;">
+            <div style="font-size: 60px; margin-bottom: 10px;">✅</div>
+            <h3 style="color: #27ae60; font-size: 26px; margin-bottom: 15px;">Дякуємо!</h3>
+            <p style="font-size: 16px; color: #555;">Замовлення успішно прийнято.<br>Ми зв'яжемося з вами найближчим часом для підтвердження.</p>
+            <button class="buy-btn" style="margin-top: 25px; padding: 15px; font-size: 16px; background: #111;" onclick="closeOrderModal()">Закрити</button>
         </div>
     </div>
 </div>
@@ -313,8 +423,8 @@
 <div id="sizeGuideModal" class="modal" onclick="toggleSizeModal(false)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close-modal" onclick="toggleSizeModal(false)">×</span>
-        <h3>Таблиця розмірів</h3>
-        <img src="size-guide.jpg" alt="Таблиця розмірів" style="width: 100%; height: auto; border-radius: 8px; margin-top: 15px; display: block;">
+        <h3 style="font-size: 22px; font-weight: 800;">Таблиця розмірів</h3>
+        <img src="size-guide.jpg" alt="Таблиця розмірів" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
     </div>
 </div>
 
@@ -397,6 +507,7 @@
         imgs.forEach((img, i) => {
             const t = document.createElement('img');
             t.src = img;
+            t.alt = "Мініатюра " + activeColorName;
             t.className = 'thumbnail' + (i === imgIdx ? ' active' : '');
             t.onclick = () => { imgIdx = i; updateGallery(); };
             thumbs.appendChild(t);
@@ -410,15 +521,23 @@
     }
 
     function slideReviews(direction) {
-        document.getElementById('reviewsSlider').scrollBy({ left: direction * 370, behavior: 'smooth' });
+        document.getElementById('reviewsSlider').scrollBy({ left: direction * 330, behavior: 'smooth' });
     }
 
     function selectSize(btn) {
         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSize = btn.innerText;
-        document.getElementById('sizeText').innerText = activeSize;
+        
+        const sizeText = document.getElementById('sizeText');
+        sizeText.innerText = activeSize;
+        sizeText.style.color = '#111';
         document.getElementById('sizeSection').style.backgroundColor = 'transparent';
+    }
+    
+    function toggleFaq(el) {
+        const item = el.parentElement;
+        item.classList.toggle('active');
     }
 
     function openOrderModal() { 
@@ -426,15 +545,22 @@
             const sizeBlock = document.getElementById('sizeSection');
             sizeBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
             sizeBlock.style.backgroundColor = '#ffe0e0';
-            setTimeout(() => sizeBlock.style.backgroundColor = 'transparent', 1500);
+            setTimeout(() => sizeBlock.style.backgroundColor = 'transparent', 1000);
             return; 
         } 
         
-        document.querySelector('#orderModal form').style.display = 'block';
+        document.getElementById('orderSummary').innerHTML = `
+            <div><b>Товар:</b> Літні чоловічі мокасини (з перфорацією)</div>
+            <div style="margin-top: 5px;"><b>Колір:</b> ${activeColorName}</div>
+            <div style="margin-top: 5px;"><b>Розмір:</b> ${activeSize}</div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; font-size: 16px;"><b>Вартість:</b> <span style="color: #d32f2f; font-weight: 800;">2550 ₴</span></div>
+        `;
+
+        document.getElementById('mainForm').style.display = 'block';
         document.getElementById('successMsg').style.display = 'none';
         document.getElementById('subBtn').disabled = false;
         document.getElementById('subBtn').innerText = 'Підтвердити замовлення';
-        document.querySelector('#orderModal form').reset(); 
+        document.getElementById('mainForm').reset(); 
 
         document.getElementById('orderModal').style.display = 'flex'; 
     }
@@ -482,8 +608,7 @@
         let replyMarkup = '';
         if (cleanPhone.length >= 10) {
             const kb = {
-                inline_keyboard: [
-                    [
+                inline_keyboard: [[
                         { text: "💬 Telegram", url: "https://t.me/+" + linkPhone },
                         { text: "💜 Viber (msng.link)", url: "https://msng.link/vi/" + linkPhone }
                     ]
@@ -503,20 +628,18 @@
         }))
         .then(results => {
             if (results.includes(true)) {
-                // Відправляємо успішну подію у Фейсбук
                 if(typeof fbq === 'function') fbq('track', 'Purchase', {
                     value: Number('2550'), 
                     currency: 'UAH', 
                     content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
                 });
                 
-                // 🔥 Бронебійний код для ТікТок Пікселя 🔥
                 if(window.ttq) {
                     window.ttq.track('CompletePayment', {
                         content_type: 'product',
                         value: Number('2550'),
                         currency: 'UAH',
-                        contents: [{
+                        contents:[{
                             content_id: 'braxton_item',
                             content_type: 'product',
                             content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
@@ -524,8 +647,9 @@
                     });
                 }
                 
-                document.querySelector('#orderModal form').style.display = 'none';
+                document.getElementById('mainForm').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
+                document.getElementById('orderSummary').style.display = 'none';
             } else {
                 alert('Помилка! Повідомлення не відправлено. Перевірте Token та ID чатів.');
                 btn.disabled = false;
