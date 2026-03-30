@@ -3,8 +3,7 @@
 
 
     <meta charset="UTF-8">
-    <!-- Прибрано блокування зуму. Тепер можна наближати сторінку пальцями! -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Літні чоловічі мокасини (з пер | BRAXTON Legacy</title>
     <meta name="description" content="Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.">
 
@@ -160,7 +159,7 @@
         .review-card:hover { transform: scale(1.02); }
         .review-card img { width: 100%; height: auto; display: block; }
         
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
         .modal-content { background: #fff; padding: 35px 30px; border-radius: 16px; max-width: 480px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         
         .order-summary { background: #fdfaf6; padding: 15px 20px; border-radius: 8px; border-left: 4px solid #b17b44; text-align: left; margin-bottom: 25px; font-size: 14px; color: #444; }
@@ -390,9 +389,9 @@
 </div>
 
 <!-- Модалка Замовлення -->
-<div id="orderModal" class="modal" onclick="closeOrderModal()">
+<div id="orderModal" class="modal" onclick="closeOrderModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="closeOrderModal()">×</span>
+        <span class="close-modal" onclick="closeOrderModal(event)">×</span>
         <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 800;">Оформлення замовлення</h3>
         
         <div id="orderSummary" class="order-summary"></div>
@@ -424,7 +423,7 @@
             <div style="font-size: 60px; margin-bottom: 10px;">✅</div>
             <h3 style="color: #27ae60; font-size: 26px; margin-bottom: 15px;">Дякуємо!</h3>
             <p style="font-size: 16px; color: #555;">Замовлення успішно прийнято.<br>Ми зв'яжемося з вами найближчим часом для підтвердження.</p>
-            <button class="buy-btn" style="margin-top: 25px; padding: 15px; font-size: 16px; background: #111;" onclick="closeOrderModal()">Закрити</button>
+            <button class="buy-btn" style="margin-top: 25px; padding: 15px; font-size: 16px; background: #111;" onclick="closeOrderModal(event)">Закрити</button>
         </div>
     </div>
 </div>
@@ -441,15 +440,13 @@
 <!-- Lightbox для перегляду та зуму фото (Повноекранний режим) -->
 <div id="imageLightbox" class="modal" onclick="closeLightbox(event)" style="padding: 0; justify-content: center; align-items: center;">
     <span class="close-modal" style="color: #fff; font-size: 40px; right: 20px; top: 15px; position: absolute; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); cursor: pointer;">×</span>
-    <div id="lbCounter" style="position: absolute; top: 25px; left: 20px; color: #fff; font-size: 16px; font-weight: 600; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px;"></div>
     
-    <button class="nav-arrow desktop-only" style="position: absolute; left: 20px; z-index: 2002;" onclick="changeImageByStep(-1); event.stopPropagation();">❮</button>
+    <!-- Лічильник фото -->
+    <div id="lbCounter" style="position: absolute; top: 25px; left: 20px; color: #fff; font-size: 16px; font-weight: 600; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px;"></div>
     
     <div id="lightboxWrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: auto; position: relative;">
         <img id="lightboxImage" src="" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: opacity 0.2s ease;">
     </div>
-
-    <button class="nav-arrow desktop-only" style="position: absolute; right: 20px; z-index: 2002;" onclick="changeImageByStep(1); event.stopPropagation();">❯</button>
 </div>
 
 <script>
@@ -598,36 +595,61 @@
 
     // --- Логіка Lightbox (Повноекранне фото та свайп) ---
     function openLightbox() {
+        if(window.innerWidth > 768) return; // На ПК працює лупа, Lightbox тільки для мобільних
+        
         document.getElementById('lightboxImage').src = document.getElementById('mainImage').src;
         document.getElementById('imageLightbox').style.display = 'flex';
-        // Показуємо лічильник одразу при відкритті
+        
         const imgs = productImages[activeColorKey];
         document.getElementById('lbCounter').innerText = (imgIdx + 1) + ' / ' + imgs.length;
+        
+        // Додаємо запис в історію браузера, щоб працювала кнопка "Назад" на телефоні
+        history.pushState({ modal: 'lightbox' }, '');
     }
 
     function closeLightbox(e) {
-        if(e.target.id === 'imageLightbox' || e.target.classList.contains('close-modal') || e.target.id === 'lightboxWrapper') {
-            document.getElementById('imageLightbox').style.display = 'none';
+        // Закриваємо тільки якщо клік не по самому фото
+        if(e && e.target && e.target.id !== 'imageLightbox' && !e.target.classList.contains('close-modal') && e.target.id !== 'lightboxWrapper') {
+            return;
+        }
+        document.getElementById('imageLightbox').style.display = 'none';
+        
+        // Якщо закрили вручну, а не кнопкою Назад
+        if (history.state && history.state.modal === 'lightbox') {
+            history.back();
         }
     }
 
+    // Свайп в Lightbox (гортання або переміщення)
     const lbWrapper = document.getElementById('lightboxWrapper');
     let lb_ts = null;
+    let lb_ts_y = null;
     
     lbWrapper.addEventListener('touchstart', e => { 
-        // Якщо користувач використовує два пальці (для зуму) - свайп не спрацьовує
-        if(e.touches.length === 1) {
+        if(e.touches.length === 1) { // Тільки якщо 1 палець (не pinch-zoom)
             lb_ts = e.changedTouches[0].screenX; 
+            lb_ts_y = e.changedTouches[0].screenY; 
         } else {
             lb_ts = null; 
         }
     }, {passive: true});
     
     lbWrapper.addEventListener('touchend', e => { 
-        if(lb_ts === null) return; // Якщо був зум, ігноруємо
+        if(lb_ts === null) return; 
+        
+        // Якщо користувач наблизив сторінку (наприклад, пальцями), ми НЕ гортаємо фото, 
+        // а дозволяємо йому вільно переміщати (scroll) наближену картинку
+        const scale = window.visualViewport ? window.visualViewport.scale : 1;
+        if (scale > 1.1) return;
+        
         let te = e.changedTouches[0].screenX; 
-        if (lb_ts - te > 40) changeImageByStep(1); // Свайп вліво -> Наступне фото
-        else if (te - lb_ts > 40) changeImageByStep(-1); // Свайп вправо -> Попереднє фото
+        let te_y = e.changedTouches[0].screenY; 
+        
+        // Свайп працює тільки якщо він був чітко по горизонталі, а не по вертикалі
+        if (Math.abs(lb_ts - te) > 40 && Math.abs(lb_ts_y - te_y) < 60) {
+            if (lb_ts - te > 40) changeImageByStep(1); 
+            else if (te - lb_ts > 40) changeImageByStep(-1); 
+        }
     }, {passive: true});
 
 
@@ -654,10 +676,35 @@
         document.getElementById('mainForm').reset(); 
 
         document.getElementById('orderModal').style.display = 'flex'; 
+        history.pushState({ modal: 'order' }, '');
     }
 
-    function closeOrderModal() { document.getElementById('orderModal').style.display = 'none'; }
-    function toggleSizeModal(s) { document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; }
+    function closeOrderModal(e) { 
+        if(e && e.target && e.target.id !== 'orderModal' && !e.target.classList.contains('close-modal')) return;
+        
+        document.getElementById('orderModal').style.display = 'none'; 
+        if (history.state && history.state.modal === 'order') {
+            history.back();
+        }
+    }
+    
+    function toggleSizeModal(s) { 
+        document.getElementById('sizeGuideModal').style.display = s ? 'flex' : 'none'; 
+        if (s) {
+            history.pushState({ modal: 'size' }, '');
+        } else {
+            if (history.state && history.state.modal === 'size') {
+                history.back();
+            }
+        }
+    }
+    
+    // Обробка апаратної кнопки "Назад" на телефоні або свайпу назад
+    window.addEventListener('popstate', function(e) {
+        document.getElementById('imageLightbox').style.display = 'none';
+        document.getElementById('orderModal').style.display = 'none';
+        document.getElementById('sizeGuideModal').style.display = 'none';
+    });
 
     function sendFinalOrder(e) {
         e.preventDefault();
