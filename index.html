@@ -50,13 +50,20 @@
         .container { max-width: 1200px; margin: 40px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
         
         .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
-        .main-image-container { width: 100%; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); touch-action: pan-y; cursor: crosshair; }
+        
+        /* Змінений блок галереї та стрілочок навігації */
+        .gallery-layout { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; }
+        .main-image-container { flex: 1; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); touch-action: pan-y; cursor: crosshair; }
         .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
-
-        .photo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #111; z-index: 5; opacity: 0; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-        .main-image-container:hover .photo-nav { opacity: 1; }
-        .photo-nav:hover { background: #111; color: #fff; }
-        .photo-prev { left: 15px; } .photo-next { right: 15px; }
+        
+        /* Стрілки зовні картинки */
+        .nav-arrow { width: 50px; height: 50px; background: #fff; border: 1px solid #eaeaea; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #111; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; z-index: 10; }
+        .nav-arrow:hover { background: #b17b44; color: #fff; border-color: #b17b44; transform: scale(1.1); }
+        
+        /* Пагінація (Крапочки внизу фотографії) */
+        .image-pagination { position: absolute; bottom: 15px; left: 0; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; pointer-events: none; }
+        .dot { width: 8px; height: 8px; background: rgba(0,0,0,0.15); border-radius: 50%; transition: 0.3s; }
+        .dot.active { background: #b17b44; transform: scale(1.3); }
 
         .thumbnails-container { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 25px; width: 100%; }
         .thumbnail { width: 70px; height: 100px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; }
@@ -104,10 +111,6 @@
         .buy-btn { background-color: #b17b44; color: #fff; padding: 22px; text-align: center; font-size: 18px; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(177,123,68,0.3); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .buy-btn:hover { background-color: #9c6835; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(177,123,68,0.4); }
         .pulse-btn { animation: pulse 2.5s infinite; }
-
-        .trust-badges { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; padding: 18px; border-radius: 8px; border: 1px dashed #ddd; }
-        .trust-badge-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #444; }
-        .trust-badge-item span { font-size: 20px; }
 
         .delivery-info { background: #fcfcfc; border: 1px dashed #ddd; border-radius: 8px; padding: 22px; margin-top: 25px; }
         .delivery-info h3 { font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #111; }
@@ -166,8 +169,12 @@
         .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #444; }
         .form-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: 0.3s; background: #fafafa; font-family: 'Montserrat', sans-serif;}
         .form-group input:focus { border-color: #b17b44; background: #fff; box-shadow: 0 0 0 3px rgba(177,123,68,0.1); }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; line-height: 1; }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; line-height: 1; z-index: 10;}
         .close-modal:hover { color: #111; transform: rotate(90deg); }
+
+        /* Стилі для Lightbox (повноекранне фото) */
+        #lightboxWrapper { overflow: auto; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; -webkit-overflow-scrolling: touch; }
+        #lightboxImage { max-width: 100%; max-height: 100%; object-fit: contain; transition: width 0.3s ease; }
 
         .mobile-only { display: none; }
         .mobile-sticky-buy { display: none; }
@@ -209,10 +216,14 @@
 
 <div class="container">
     <div class="product-gallery">
-        <div class="main-image-container" id="swipeArea">
-            <button class="photo-nav photo-prev" onclick="changeImageByStep(-1)">❮</button>
-            <img id="mainImage" src="" alt="Фото Літні чоловічі мокасини (з перфорацією)">
-            <button class="photo-nav photo-next" onclick="changeImageByStep(1)">❯</button>
+        <div class="gallery-layout">
+            <button class="nav-arrow desktop-only" onclick="changeImageByStep(-1)">❮</button>
+            <div class="main-image-container" id="swipeArea" onclick="openLightbox()">
+                <img id="mainImage" src="" alt="Фото Літні чоловічі мокасини (з перфорацією)">
+                <!-- Пагінація для мобільних замість тексту -->
+                <div class="image-pagination" id="imagePagination"></div>
+            </div>
+            <button class="nav-arrow desktop-only" onclick="changeImageByStep(1)">❯</button>
         </div>
 
         <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
@@ -243,7 +254,7 @@
 
         <div class="price-wrap">
             <span class="old-price">2800 ₴</span>
-            <span class="price">2550 ₴</span>
+            <span class="price">2650 ₴</span>
             <span class="stock-badge">В наявності</span>
         </div>
         
@@ -376,11 +387,12 @@
 <div class="mobile-sticky-buy mobile-only">
     <div class="sticky-price">
         <span class="st-old">2800 ₴</span>
-        <span class="st-new">2550 ₴</span>
+        <span class="st-new">2650 ₴</span>
     </div>
     <button class="buy-btn" onclick="openOrderModal()">🛒 Купити</button>
 </div>
 
+<!-- Модалка Замовлення -->
 <div id="orderModal" class="modal" onclick="closeOrderModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close-modal" onclick="closeOrderModal()">×</span>
@@ -420,6 +432,7 @@
     </div>
 </div>
 
+<!-- Модалка Таблиці розмірів -->
 <div id="sizeGuideModal" class="modal" onclick="toggleSizeModal(false)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close-modal" onclick="toggleSizeModal(false)">×</span>
@@ -428,16 +441,25 @@
     </div>
 </div>
 
+<!-- Lightbox для зуму фото на мобільних -->
+<div id="imageLightbox" class="modal" onclick="closeLightbox(event)" style="flex-direction: column; padding: 0;">
+    <span class="close-modal" style="color: #fff; font-size: 40px; right: 20px; top: 15px; position: absolute; z-index: 2001; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">×</span>
+    <div id="lightboxWrapper">
+        <img id="lightboxImage" src="">
+    </div>
+    <div style="position: absolute; bottom: 30px; color: #fff; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 20px; z-index: 2001; pointer-events: none; left: 50%; transform: translateX(-50%);">Подвійний тап для наближення</div>
+</div>
+
 <script>
     const productImages = {
-        'color_0': ['latte_1.jpg','latte_2.jpg','latte_3.jpg','latte_4.jpg','latte_5.jpg','latte_6.jpg'],
-'color_1': ['blue_1.jpg','blue_2.jpg','blue_3.jpg','blue_4.jpg','blue_5.jpg','blue_6.jpg'],
-'color_2': ['gray_1.jpg','gray_2.jpg','gray_3.jpg','gray_4.jpg'],
-'color_3': ['brown_1.jpg','brown_2.jpg','brown_3.jpg'],
-'color_4': ['black_1.jpg','black_2.jpg','black_3.jpg','black_4.jpg','black_5.jpg','black_6.jpg'],
-'color_5': ['black_smooth_1.jpg','black_smooth_2.jpg','black_smooth_3.jpg','black_smooth_4.jpg','black_smooth_5.jpg'],
-'color_6': ['ivory_1.jpg','ivory_2.jpg','ivory_3.jpg','ivory_4.jpg','ivory_5.jpg','ivory_6.jpg'],
-'color_7': ['DSC_0365.jpg','DSC_0358.jpg','DSC_0359.jpg','DSC_0361.jpg','DSC_0363.jpg','DSC_0364.jpg'],
+        'color_0':['latte_1.jpg','latte_2.jpg','latte_3.jpg','latte_4.jpg','latte_5.jpg','latte_6.jpg'],
+'color_1':['blue_1.jpg','blue_2.jpg','blue_3.jpg','blue_4.jpg','blue_5.jpg','blue_6.jpg'],
+'color_2':['gray_1.jpg','gray_2.jpg','gray_3.jpg','gray_4.jpg'],
+'color_3':['brown_1.jpg','brown_2.jpg','brown_3.jpg'],
+'color_4':['black_1.jpg','black_2.jpg','black_3.jpg','black_4.jpg','black_5.jpg','black_6.jpg'],
+'color_5':['black_smooth_1.jpg','black_smooth_2.jpg','black_smooth_3.jpg','black_smooth_4.jpg','black_smooth_5.jpg'],
+'color_6':['ivory_1.jpg','ivory_2.jpg','ivory_3.jpg','ivory_4.jpg','ivory_5.jpg','ivory_6.jpg'],
+'color_7':['DSC_0365.jpg','DSC_0358.jpg','DSC_0359.jpg','DSC_0361.jpg','DSC_0363.jpg','DSC_0364.jpg'],
 
     };
 
@@ -509,9 +531,22 @@
             t.src = img;
             t.alt = "Мініатюра " + activeColorName;
             t.className = 'thumbnail' + (i === imgIdx ? ' active' : '');
-            t.onclick = () => { imgIdx = i; updateGallery(); };
+            t.onclick = (e) => { e.stopPropagation(); imgIdx = i; updateGallery(); };
             thumbs.appendChild(t);
         });
+
+        // Оновлення пагінації (крапочок)
+        const pagination = document.getElementById('imagePagination');
+        if(pagination) {
+            pagination.innerHTML = '';
+            if(imgs.length > 1) {
+                imgs.forEach((_, i) => {
+                    const d = document.createElement('div');
+                    d.className = 'dot' + (i === imgIdx ? ' active' : '');
+                    pagination.appendChild(d);
+                });
+            }
+        }
     }
 
     function changeImageByStep(s) {
@@ -540,6 +575,50 @@
         item.classList.toggle('active');
     }
 
+    // Логіка для мобільного зуму фото (Lightbox)
+    let isZoomed = false;
+    const lbImg = document.getElementById('lightboxImage');
+    
+    function openLightbox() {
+        if(window.innerWidth <= 768) {
+            lbImg.src = document.getElementById('mainImage').src;
+            isZoomed = false;
+            lbImg.style.width = "auto";
+            lbImg.style.height = "auto";
+            lbImg.style.maxHeight = "100%";
+            lbImg.style.maxWidth = "100%";
+            document.getElementById('imageLightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeLightbox(e) {
+        if(e.target.id === 'imageLightbox' || e.target.classList.contains('close-modal') || e.target.id === 'lightboxWrapper') {
+            document.getElementById('imageLightbox').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    let lastTapTime = 0;
+    lbImg.addEventListener('touchend', function(e) {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTapTime;
+        if (tapLength < 300 && tapLength > 0) {
+            isZoomed = !isZoomed;
+            if(isZoomed) {
+                lbImg.style.maxHeight = "none";
+                lbImg.style.maxWidth = "none";
+                lbImg.style.width = "250%";
+            } else {
+                lbImg.style.maxHeight = "100%";
+                lbImg.style.maxWidth = "100%";
+                lbImg.style.width = "auto";
+            }
+            e.preventDefault();
+        }
+        lastTapTime = currentTime;
+    });
+
     function openOrderModal() { 
         if(!activeSize) { 
             const sizeBlock = document.getElementById('sizeSection');
@@ -553,7 +632,7 @@
             <div><b>Товар:</b> Літні чоловічі мокасини (з перфорацією)</div>
             <div style="margin-top: 5px;"><b>Колір:</b> ${activeColorName}</div>
             <div style="margin-top: 5px;"><b>Розмір:</b> ${activeSize}</div>
-            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; font-size: 16px;"><b>Вартість:</b> <span style="color: #d32f2f; font-weight: 800;">2550 ₴</span></div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; font-size: 16px;"><b>Вартість:</b> <span style="color: #d32f2f; font-weight: 800;">2650 ₴</span></div>
         `;
 
         document.getElementById('mainForm').style.display = 'block';
@@ -597,7 +676,7 @@
 
         function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-        let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Літні чоловічі мокасини (з перфорацією)`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2550 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
+        let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Літні чоловічі мокасини (з перфорацією)`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2650 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
         
         if (comment.trim() !== "") text += `\nКоментар: ${esc(comment)}`;
 
@@ -629,7 +708,7 @@
         .then(results => {
             if (results.includes(true)) {
                 if(typeof fbq === 'function') fbq('track', 'Purchase', {
-                    value: Number('2550'), 
+                    value: Number('2650'), 
                     currency: 'UAH', 
                     content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
                 });
@@ -637,7 +716,7 @@
                 if(window.ttq) {
                     window.ttq.track('CompletePayment', {
                         content_type: 'product',
-                        value: Number('2550'),
+                        value: Number('2650'),
                         currency: 'UAH',
                         contents:[{
                             content_id: 'braxton_item',
