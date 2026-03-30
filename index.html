@@ -3,7 +3,8 @@
 
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Прибрано блокування зуму. Тепер можна наближати сторінку пальцями! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Літні чоловічі мокасини (з пер | BRAXTON Legacy</title>
     <meta name="description" content="Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.">
 
@@ -51,7 +52,7 @@
         
         .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Змінений блок галереї та стрілочок навігації */
+        /* Змінений блок галереї та стрілочок навігації (стрілки ЗОВНІ) */
         .gallery-layout { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; }
         .main-image-container { flex: 1; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); touch-action: pan-y; cursor: crosshair; }
         .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
@@ -60,7 +61,7 @@
         .nav-arrow { width: 50px; height: 50px; background: #fff; border: 1px solid #eaeaea; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #111; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; z-index: 10; }
         .nav-arrow:hover { background: #b17b44; color: #fff; border-color: #b17b44; transform: scale(1.1); }
         
-        /* Пагінація (Крапочки внизу фотографії) */
+        /* Пагінація (Крапочки внизу фотографії) - Мінімалістичний інтерфейс для мобільних */
         .image-pagination { position: absolute; bottom: 15px; left: 0; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; pointer-events: none; }
         .dot { width: 8px; height: 8px; background: rgba(0,0,0,0.15); border-radius: 50%; transition: 0.3s; }
         .dot.active { background: #b17b44; transform: scale(1.3); }
@@ -112,6 +113,10 @@
         .buy-btn:hover { background-color: #9c6835; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(177,123,68,0.4); }
         .pulse-btn { animation: pulse 2.5s infinite; }
 
+        .trust-badges { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; padding: 18px; border-radius: 8px; border: 1px dashed #ddd; }
+        .trust-badge-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #444; }
+        .trust-badge-item span { font-size: 20px; }
+
         .delivery-info { background: #fcfcfc; border: 1px dashed #ddd; border-radius: 8px; padding: 22px; margin-top: 25px; }
         .delivery-info h3 { font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #111; }
         .delivery-item { margin-bottom: 12px; padding-left: 32px; position: relative; font-size: 14px; line-height: 1.5; color: #444; }
@@ -155,11 +160,7 @@
         .review-card:hover { transform: scale(1.02); }
         .review-card img { width: 100%; height: auto; display: block; }
         
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: #fff; border: none; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15); font-size: 20px; color: #111; transition: 0.3s; }
-        .nav-btn:hover { background: #b17b44; color: #fff; }
-        .prev-btn { left: -10px; } .next-btn { right: -10px; }
-
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
         .modal-content { background: #fff; padding: 35px 30px; border-radius: 16px; max-width: 480px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         
         .order-summary { background: #fdfaf6; padding: 15px 20px; border-radius: 8px; border-left: 4px solid #b17b44; text-align: left; margin-bottom: 25px; font-size: 14px; color: #444; }
@@ -172,10 +173,6 @@
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; line-height: 1; z-index: 10;}
         .close-modal:hover { color: #111; transform: rotate(90deg); }
 
-        /* Стилі для Lightbox (повноекранне фото) */
-        #lightboxWrapper { overflow: auto; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; -webkit-overflow-scrolling: touch; }
-        #lightboxImage { max-width: 100%; max-height: 100%; object-fit: contain; transition: width 0.3s ease; }
-
         .mobile-only { display: none; }
         .mobile-sticky-buy { display: none; }
 
@@ -186,7 +183,7 @@
             .price { font-size: 28px; }
             .old-price { font-size: 18px; }
             .review-card { flex: 0 0 85%; }
-            .nav-btn { display: none; } 
+            .nav-arrow { display: none; } /* Ховаємо великі стрілки на мобільному */
             .mobile-only { display: block; }
             .desktop-only { display: none; }
             
@@ -220,7 +217,7 @@
             <button class="nav-arrow desktop-only" onclick="changeImageByStep(-1)">❮</button>
             <div class="main-image-container" id="swipeArea" onclick="openLightbox()">
                 <img id="mainImage" src="" alt="Фото Літні чоловічі мокасини (з перфорацією)">
-                <!-- Пагінація для мобільних замість тексту -->
+                <!-- Пагінація (крапочки) для мобільних замість тексту -->
                 <div class="image-pagination" id="imagePagination"></div>
             </div>
             <button class="nav-arrow desktop-only" onclick="changeImageByStep(1)">❯</button>
@@ -441,13 +438,18 @@
     </div>
 </div>
 
-<!-- Lightbox для зуму фото на мобільних -->
-<div id="imageLightbox" class="modal" onclick="closeLightbox(event)" style="flex-direction: column; padding: 0;">
-    <span class="close-modal" style="color: #fff; font-size: 40px; right: 20px; top: 15px; position: absolute; z-index: 2001; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">×</span>
-    <div id="lightboxWrapper">
-        <img id="lightboxImage" src="">
+<!-- Lightbox для перегляду та зуму фото (Повноекранний режим) -->
+<div id="imageLightbox" class="modal" onclick="closeLightbox(event)" style="padding: 0; justify-content: center; align-items: center;">
+    <span class="close-modal" style="color: #fff; font-size: 40px; right: 20px; top: 15px; position: absolute; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); cursor: pointer;">×</span>
+    <div id="lbCounter" style="position: absolute; top: 25px; left: 20px; color: #fff; font-size: 16px; font-weight: 600; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px;"></div>
+    
+    <button class="nav-arrow desktop-only" style="position: absolute; left: 20px; z-index: 2002;" onclick="changeImageByStep(-1); event.stopPropagation();">❮</button>
+    
+    <div id="lightboxWrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: auto; position: relative;">
+        <img id="lightboxImage" src="" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: opacity 0.2s ease;">
     </div>
-    <div style="position: absolute; bottom: 30px; color: #fff; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 20px; z-index: 2001; pointer-events: none; left: 50%; transform: translateX(-50%);">Подвійний тап для наближення</div>
+
+    <button class="nav-arrow desktop-only" style="position: absolute; right: 20px; z-index: 2002;" onclick="changeImageByStep(1); event.stopPropagation();">❯</button>
 </div>
 
 <script>
@@ -471,6 +473,7 @@
     const mainImageEl = document.getElementById('mainImage');
     const swipeArea = document.getElementById('swipeArea');
 
+    // Лупа на десктопі
     swipeArea.addEventListener('mousemove', (e) => {
         if(window.innerWidth > 768) {
             const rect = swipeArea.getBoundingClientRect();
@@ -485,6 +488,7 @@
         mainImageEl.style.transform = "scale(1)";
     });
 
+    // Свайп на головній картинці (Мобільний)
     let ts = 0;
     swipeArea.addEventListener('touchstart', e => { ts = e.changedTouches[0].screenX; }, {passive: true});
     swipeArea.addEventListener('touchend', e => { 
@@ -519,11 +523,22 @@
     function updateGallery() {
         const imgs = productImages[activeColorKey];
         mainImageEl.style.opacity = '0.3';
+        
+        const lbImg = document.getElementById('lightboxImage');
+        const isLightboxOpen = document.getElementById('imageLightbox').style.display === 'flex';
+        if(isLightboxOpen && lbImg) lbImg.style.opacity = '0.3';
+        
         setTimeout(() => {
             mainImageEl.src = imgs[imgIdx];
             mainImageEl.style.opacity = '1';
+            
+            if(isLightboxOpen && lbImg) {
+                lbImg.src = imgs[imgIdx];
+                lbImg.style.opacity = '1';
+            }
         }, 150);
 
+        // Оновлення мініатюр
         const thumbs = document.getElementById('thumbnails');
         thumbs.innerHTML = '';
         imgs.forEach((img, i) => {
@@ -535,7 +550,7 @@
             thumbs.appendChild(t);
         });
 
-        // Оновлення пагінації (крапочок)
+        // Оновлення точок пагінації
         const pagination = document.getElementById('imagePagination');
         if(pagination) {
             pagination.innerHTML = '';
@@ -546,6 +561,12 @@
                     pagination.appendChild(d);
                 });
             }
+        }
+        
+        // Оновлення лічильника в Lightbox
+        const lbCounter = document.getElementById('lbCounter');
+        if(lbCounter && imgs.length > 0) {
+            lbCounter.innerText = (imgIdx + 1) + ' / ' + imgs.length;
         }
     }
 
@@ -575,49 +596,40 @@
         item.classList.toggle('active');
     }
 
-    // Логіка для мобільного зуму фото (Lightbox)
-    let isZoomed = false;
-    const lbImg = document.getElementById('lightboxImage');
-    
+    // --- Логіка Lightbox (Повноекранне фото та свайп) ---
     function openLightbox() {
-        if(window.innerWidth <= 768) {
-            lbImg.src = document.getElementById('mainImage').src;
-            isZoomed = false;
-            lbImg.style.width = "auto";
-            lbImg.style.height = "auto";
-            lbImg.style.maxHeight = "100%";
-            lbImg.style.maxWidth = "100%";
-            document.getElementById('imageLightbox').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
+        document.getElementById('lightboxImage').src = document.getElementById('mainImage').src;
+        document.getElementById('imageLightbox').style.display = 'flex';
+        // Показуємо лічильник одразу при відкритті
+        const imgs = productImages[activeColorKey];
+        document.getElementById('lbCounter').innerText = (imgIdx + 1) + ' / ' + imgs.length;
     }
 
     function closeLightbox(e) {
         if(e.target.id === 'imageLightbox' || e.target.classList.contains('close-modal') || e.target.id === 'lightboxWrapper') {
             document.getElementById('imageLightbox').style.display = 'none';
-            document.body.style.overflow = '';
         }
     }
 
-    let lastTapTime = 0;
-    lbImg.addEventListener('touchend', function(e) {
-        const currentTime = new Date().getTime();
-        const tapLength = currentTime - lastTapTime;
-        if (tapLength < 300 && tapLength > 0) {
-            isZoomed = !isZoomed;
-            if(isZoomed) {
-                lbImg.style.maxHeight = "none";
-                lbImg.style.maxWidth = "none";
-                lbImg.style.width = "250%";
-            } else {
-                lbImg.style.maxHeight = "100%";
-                lbImg.style.maxWidth = "100%";
-                lbImg.style.width = "auto";
-            }
-            e.preventDefault();
+    const lbWrapper = document.getElementById('lightboxWrapper');
+    let lb_ts = null;
+    
+    lbWrapper.addEventListener('touchstart', e => { 
+        // Якщо користувач використовує два пальці (для зуму) - свайп не спрацьовує
+        if(e.touches.length === 1) {
+            lb_ts = e.changedTouches[0].screenX; 
+        } else {
+            lb_ts = null; 
         }
-        lastTapTime = currentTime;
-    });
+    }, {passive: true});
+    
+    lbWrapper.addEventListener('touchend', e => { 
+        if(lb_ts === null) return; // Якщо був зум, ігноруємо
+        let te = e.changedTouches[0].screenX; 
+        if (lb_ts - te > 40) changeImageByStep(1); // Свайп вліво -> Наступне фото
+        else if (te - lb_ts > 40) changeImageByStep(-1); // Свайп вправо -> Попереднє фото
+    }, {passive: true});
+
 
     function openOrderModal() { 
         if(!activeSize) { 
