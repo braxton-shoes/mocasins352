@@ -4,19 +4,16 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Літні чоловічі мокасини (з пер | BRAXTON Legacy</title>
+    <title>Літні чоловічі мокасини (з перфорацією) | PARA footwear</title>
     <meta name="description" content="Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.">
     
-    <!-- ФАВІКОНКА (Іконка сайту) -->
-    <link rel="icon" href="https://braxton-shoes.github.io/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="https://braxton-shoes.github.io/favicon.png">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- Підключення шрифта Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-    <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,7 +27,6 @@
     fbq('track', 'PageView');
     </script>
     
-    <!-- TikTok Pixel Code -->
     <script>
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -43,27 +39,37 @@
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #fcfcfc; color: #333; line-height: 1.6; }
+        html, body { background-color: #fcfcfc; color: #333; line-height: 1.6; overflow-x: hidden; width: 100%; }
         
-        header { background-color: #1a1a1a; color: #fff; padding: 18px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; z-index: 10; }
+        header { background-color: #1a1a1a; color: #fff; padding: 18px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; z-index: 10; width: 100%; }
         .header-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .header-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
         .header-logo span { color: #b17b44; }
         .header-info { font-size: 13px; color: #ccc; font-weight: 500; display: flex; align-items: center; gap: 8px;}
         
-        .container { max-width: 1200px; margin: 40px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
+        .container { max-width: 1200px; margin: 40px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; width: 100%; }
         
-        .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; position: relative; }
-        
+        /* === CLASSIC GALLERY STYLES === */
+        .product-gallery { flex: 1 1 600px; padding: 40px; background-color: #f8f8f8; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .gallery-layout { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; }
-        .main-image-container { flex: 1; max-width: 500px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 8px; position: relative; background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); touch-action: pan-y; cursor: crosshair; }
-        .main-image-container img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.2s ease, transform 0.1s ease; pointer-events: none; }
+        
+        .main-image-container { 
+            flex: 1; max-width: 500px; width: 100%; aspect-ratio: 2 / 3; 
+            overflow: hidden; border-radius: 8px; position: relative; 
+            background-color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.05); 
+            display: flex; align-items: center; justify-content: center; cursor: zoom-in;
+        }
+        
+        #mainImage { 
+            width: 100%; height: 100%; object-fit: contain; 
+            transition: transform 0.2s ease; 
+        }
         
         .nav-arrow { width: 50px; height: 50px; background: #fff; border: 1px solid #eaeaea; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #111; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; z-index: 10; }
         .nav-arrow:hover { background: #b17b44; color: #fff; border-color: #b17b44; transform: scale(1.1); }
         
         .image-pagination { position: absolute; bottom: 15px; left: 0; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; pointer-events: none; }
-        .dot { width: 8px; height: 8px; background: rgba(0,0,0,0.15); border-radius: 50%; transition: 0.3s; }
+        .dot { width: 8px; height: 8px; background: rgba(0,0,0,0.15); border-radius: 50%; transition: 0.3s; pointer-events: auto; cursor: pointer; }
         .dot.active { background: #b17b44; transform: scale(1.3); }
 
         .thumbnails-container { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 25px; width: 100%; }
@@ -71,88 +77,80 @@
         .thumbnail:hover { opacity: 0.8; }
         .thumbnail.active { opacity: 1; border-color: #b17b44; box-shadow: 0 4px 10px rgba(177,123,68,0.3); }
 
-        .product-info { flex: 1 1 450px; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        /* === PRODUCT INFO === */
+        .product-info { flex: 1 1 450px; padding: 50px; display: flex; flex-direction: column; justify-content: center; width: 100%; }
         h1 { font-size: 32px; margin-bottom: 10px; color: #111; line-height: 1.2; font-weight: 800; }
         
         .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; font-size: 18px; color: #f1c40f; }
         .rating .r-val { font-weight: 700; color: #111; font-size: 16px; margin-left: 2px; }
         .rating .r-count { color: #777; font-size: 14px; font-weight: 500; }
         
-        .price-wrap { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;}
-        .price { font-size: 34px; color: #d32f2f; font-weight: 800; }
-        .old-price { font-size: 22px; color: #999; text-decoration: line-through; font-weight: 500; }
-        .stock-badge { font-size: 11px; color: #27ae60; border: 1px solid #27ae60; padding: 4px 10px; border-radius: 20px; font-weight: 600; text-transform: uppercase; background: #eefaf2; }
+        .price-wrap { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .price-old { font-size: 18px; color: #999; text-decoration: line-through; font-weight: 500; }
+        .price-new { font-size: 32px; color: #d32f2f; font-weight: 800; }
+        .in-stock { display: inline-block; font-size: 11px; color: #27ae60; padding: 4px 10px; border-radius: 20px; font-weight: 600; text-transform: uppercase; background: #eefaf2; }
         
         .description { margin-bottom: 25px; color: #555; font-size: 16px; line-height: 1.7; }
-
+        
         .selector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .selector-title { font-weight: 700; color: #222; font-size: 15px; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
         .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 600; }
         
         .color-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
-        .color-circle { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
-        .color-circle.active { border-color: #b17b44; transform: scale(1.15); box-shadow: 0 0 12px rgba(177,123,68,0.4); border-width: 3px; }
+        .color-circle { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; }
+        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.15); border-width: 3px; }
         
-        .color-color_0 { background: #c2a37f; }
-.color-color_1 { background: #2c3e50; }
-.color-color_2 { background: #8a8d91; }
-.color-color_3 { background: #6b4e31; }
-.color-color_4 { background: #222; }
-.color-color_5 { background: #0f0f0f; }
-.color-color_6 { background: #fffff0; }
-.color-color_7 { background: #0f0f0f; }
+                .color-color_0 { background: #c2a37f; }
+        .color-color_1 { background: #2c3e50; }
+        .color-color_2 { background: #8a8d91; }
+        .color-color_3 { background: #6b4e31; }
+        .color-color_4 { background: #222; }
+        .color-color_5 { background: #0f0f0f; }
+        .color-color_6 { background: #fffff0; }
+        .color-color_7 { background: #0f0f0f; }
 
 
-        .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
-        .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 95px; border-radius: 6px; transition: 0.2s; font-size: 14px; text-align: center; font-weight: 500; color: #444; }
-        .size-btn:hover { border-color: #999; }
-        .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
+        .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
+        .size-btn.active { border-color: #111; background: #111; color: #fff; font-weight: bold; }
 
-        @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0.6);} 50% {transform: scale(1.02); box-shadow: 0 0 20px rgba(177,123,68,0.8);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} }
-        .buy-btn { background-color: #b17b44; color: #fff; padding: 22px; text-align: center; font-size: 18px; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(177,123,68,0.3); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .buy-btn:hover { background-color: #9c6835; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(177,123,68,0.4); }
+        @keyframes pulse { 0% {transform: scale(1); box-shadow: 0 0 0 rgba(177,123,68,0);} 50% {transform: scale(1.02); box-shadow: 0 0 15px rgba(17,17,17,0.3);} 100% {transform: scale(1); box-shadow: 0 0 0 rgba(17,17,17,0);} }
+        .buy-btn { background-color: #111; color: #fff; padding: 20px; text-align: center; font-size: 18px; font-weight: 800; border-radius: 8px; cursor: pointer; width: 100%; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .buy-btn:hover { background-color: #b17b44; }
         .pulse-btn { animation: pulse 2.5s infinite; }
 
-        .trust-badges { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; padding: 18px; border-radius: 8px; border: 1px dashed #ddd; }
-        .trust-badge-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #444; }
-        .trust-badge-item span { font-size: 20px; }
-
-        .delivery-info { background: #fcfcfc; border: 1px dashed #ddd; border-radius: 8px; padding: 22px; margin-top: 25px; }
-        .delivery-info h3 { font-size: 15px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #111; }
-        .delivery-item { margin-bottom: 12px; padding-left: 32px; position: relative; font-size: 14px; line-height: 1.5; color: #444; }
-        .delivery-item:last-child { margin-bottom: 0; }
+        .delivery-info { background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; padding: 25px; margin-top: 20px; }
+        .delivery-info h3 { font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
+        .delivery-item { margin-bottom: 15px; padding-left: 35px; position: relative; font-size: 14px; line-height: 1.4; }
         .delivery-item::before { position: absolute; left: 0; top: -2px; font-size: 18px; }
         .icon-box::before { content: '📦'; } .icon-card::before { content: '💳'; } .icon-return::before { content: '🔄'; }
 
         .faq-section { max-width: 900px; margin: 60px auto 30px; padding: 0 20px; }
         .faq-title { text-align: center; font-size: 28px; font-weight: 800; margin-bottom: 30px; color: #111; }
         .faq-item { background: #fff; border: 1px solid #eaeaea; border-radius: 8px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-        .faq-question { padding: 20px; font-weight: 600; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; transition: background 0.3s; color: #222; }
-        .faq-question:hover { background: #f5f5f5; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; color: #555; font-size: 15px; line-height: 1.7; }
-        .faq-item.active .faq-question { background: #fafafa; border-bottom: 1px solid #eaeaea; color: #b17b44;}
-        .faq-item.active .faq-answer { padding: 20px; max-height: 500px; }
-        .faq-icon { transition: transform 0.3s; font-size: 20px; color: #b17b44; }
+        .faq-question { padding: 20px; font-weight: 600; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fafafa; transition: 0.3s; }
+        .faq-question:hover { background: #f1f1f1; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #555; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding: 20px; max-height: 500px; border-top: 1px solid #eee; }
+        .faq-icon { font-size: 20px; transition: transform 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
 
         .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-        .about-section { background-color: #1a1a1a; color: #fff; padding: 70px 20px; text-align: center; margin-top: 60px; position: relative; overflow: hidden; }
-        .about-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
-        .about-content h2 { font-size: 30px; margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; color: #b17b44; font-weight: 800; }
-        .about-content p { font-size: 17px; line-height: 1.9; color: #dcdcdc; margin-bottom: 15px; font-weight: 400; }
-        .about-footer { font-weight: 700; color: #fff; font-size: 18px; margin-top: 25px; font-style: italic; letter-spacing: 1px; }
-
-        .color-showcase-section { max-width: 1200px; margin: 70px auto 0; padding: 0 20px; text-align: center; }
-        .color-showcase-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-        .color-showcase-item { flex: 0 1 220px; cursor: pointer; transition: 0.3s; background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
-        .color-showcase-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #e0e0e0; }
-        .color-showcase-item img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 8px; border: 2px solid transparent; transition: 0.3s; }
+        .about-section { background-color: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; margin-top: 60px; }
+        .about-content { max-width: 800px; margin: 0 auto; }
+        .about-content h2 { font-size: 28px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; color: #b17b44; font-weight: 800; }
+        
+        .color-showcase-section { max-width: 1200px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
+        .color-showcase-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .color-showcase-item { flex: 0 1 180px; cursor: pointer; transition: 0.3s; }
+        .color-showcase-item img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 8px; border: 2px solid transparent; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .color-showcase-item.active img { border-color: #b17b44; }
-        .color-showcase-item span { display: block; margin-top: 12px; font-size: 14px; font-weight: 600; color: #333; }
+        .color-showcase-item span { display: block; margin-top: 10px; font-size: 14px; font-weight: 600; color: #444; }
 
-        .reviews-section { max-width: 1200px; margin: 50px auto 40px; padding: 0 20px; position: relative; }
+        .reviews-section { max-width: 1200px; margin: 60px auto 40px; padding: 0 20px; position: relative; }
+        .reviews-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: 800; }
         .slider-wrapper { position: relative; display: flex; align-items: center; padding: 0 20px; }
         .reviews-slider { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 20px 0; scrollbar-width: none; width: 100%; }
         .reviews-slider::-webkit-scrollbar { display: none; }
@@ -160,39 +158,37 @@
         .review-card:hover { transform: scale(1.02); }
         .review-card img { width: 100%; height: auto; display: block; }
         
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
-        .modal-content { background: #fff; padding: 35px 30px; border-radius: 16px; max-width: 480px; width: 100%; position: relative; text-align: center; max-height: 95vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        
-        .order-summary { background: #fdfaf6; padding: 15px 20px; border-radius: 8px; border-left: 4px solid #b17b44; text-align: left; margin-bottom: 25px; font-size: 14px; color: #444; }
-        .order-summary b { color: #111; }
-        
-        .form-group { text-align: left; margin-bottom: 18px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #444; }
-        .form-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: 0.3s; background: #fafafa; font-family: 'Montserrat', sans-serif;}
-        .form-group input:focus { border-color: #b17b44; background: #fff; box-shadow: 0 0 0 3px rgba(177,123,68,0.1); }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; line-height: 1; z-index: 10;}
-        .close-modal:hover { color: #111; transform: rotate(90deg); }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); overflow: auto; }
+        .modal-content { background: #fff; padding: 35px 30px; border-radius: 15px; max-width: 500px; width: 100%; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        .form-group { text-align: left; margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 14px; color: #555; font-weight: 600; }
+        .form-group input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+        .form-group input:focus { border-color: #b17b44; box-shadow: 0 0 0 3px rgba(177,123,68,0.1); }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; z-index: 2100; }
+        .close-modal:hover { color: #111; }
+
+        .order-summary { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 15px; border: 1px dashed #ccc; }
 
         .mobile-only { display: none; }
         .mobile-sticky-buy { display: none; }
 
+        /* === LIGHTBOX CLASSIC CSS === */
+        #imageLightbox { flex-direction: column; padding: 0; background: #000; }
+        .lightbox-img-wrap { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: auto; touch-action: pan-x pan-y pinch-zoom; }
+        #lightboxImage { max-width: 100%; max-height: 100%; object-fit: contain; }
+
         @media (max-width: 768px) {
-            .container { margin: 0; border-radius: 0; flex-direction: column; box-shadow: none; }
-            .product-gallery, .product-info { padding: 25px 20px; }
-            h1 { font-size: 26px; }
-            .price { font-size: 28px; }
-            .old-price { font-size: 18px; }
+            .container { margin: 0; border-radius: 0; flex-direction: column; box-shadow: none; padding-bottom: 80px; }
+            .product-gallery, .product-info { padding: 20px; width: 100%; }
+            .gallery-layout { gap: 0; }
             .review-card { flex: 0 0 85%; }
-            .nav-arrow { display: none; } 
             .mobile-only { display: block; }
             .desktop-only { display: none; }
+            h1 { font-size: 26px; }
+            .faq-title { font-size: 24px; }
+            .reviews-title { font-size: 24px; }
             
-            body { padding-bottom: 85px; } 
-            .mobile-sticky-buy {
-                display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff;
-                padding: 12px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); justify-content: space-between;
-                align-items: center; z-index: 1000; gap: 15px; border-top: 1px solid #eee;
-            }
+            .mobile-sticky-buy { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 15px 20px; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 100; align-items: center; justify-content: space-between; border-top: 1px solid #eee; }
             .sticky-price { display: flex; flex-direction: column; line-height: 1.1; }
             .st-old { font-size: 13px; color: #999; text-decoration: line-through; font-weight: 500;}
             .st-new { font-size: 20px; font-weight: 800; color: #d32f2f; }
@@ -202,304 +198,288 @@
 
 
 
-<header>
-    <div class="header-inner">
-        <a href="https://braxton-shoes.github.io/" style="text-decoration: none; color: inherit;">
-            <div class="header-logo">BRAXTON <span>Legacy</span></div>
-        </a>
-        <div class="header-info desktop-only">⌚ Щодня 10:00 - 20:00</div>
-    </div>
-</header>
+    <header>
+        <div class="header-inner">
+            <a href="https://braxton-shoes.github.io/" style="text-decoration: none; color: inherit;">
+                <div class="header-logo">PARA <span>footwear</span></div>
+            </a>
+            <div class="header-info desktop-only">⌚ Щодня 10:00 - 20:00</div>
+        </div>
+    </header>
 
-<div class="container">
-    <div class="product-gallery">
-        <div class="gallery-layout">
-            <button class="nav-arrow desktop-only" onclick="changeImageByStep(-1)">❮</button>
-            <div class="main-image-container" id="swipeArea" onclick="openLightbox()">
-                <img id="mainImage" src="" alt="Фото Літні чоловічі мокасини (з перфорацією)">
-                <div class="image-pagination" id="imagePagination"></div>
+    <div class="container">
+        <div class="product-gallery">
+            <div class="gallery-layout">
+                <button class="nav-arrow desktop-only" onclick="scrollGallery(-1)">❮</button>
+                
+                <div class="main-image-container" id="mainImageWrap">
+                    <img id="mainImage" src="" alt="Фото товару" onclick="openLightbox()">
+                    <div class="image-pagination" id="imagePagination"></div>
+                </div>
+                
+                <button class="nav-arrow desktop-only" onclick="scrollGallery(1)">❯</button>
             </div>
-            <button class="nav-arrow desktop-only" onclick="changeImageByStep(1)">❯</button>
+            
+            <div style="text-align: center; margin-top: 8px; font-size: 12px; color: #999;" class="mobile-only">
+                👆 Свайпайте вліво/вправо. Натисніть для збільшення.
+            </div>
+
+            <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
+                <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44">Латте (нубук) NL352L</span></span>
+                <div class="color-options" style="justify-content: center; margin-top: 10px;">
+                                        <div class="color-circle color-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')" title="Латте (нубук) NL352L"></div>
+                    <div class="color-circle color-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')" title="Синя замша NL352zsib"></div>
+                    <div class="color-circle color-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')" title="Сіра замша NL352gz"></div>
+                    <div class="color-circle color-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')" title="Коричнева замша NL352zbr"></div>
+                    <div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
+                    <div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
+                    <div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
+                    <div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
+
+                </div>
+            </div>
+
+            <div class="thumbnails-container" id="thumbnails"></div>
         </div>
 
-        <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
-            <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44; font-weight: 700;">Латте (нубук) NL352L</span></span>
-            <div class="color-options" style="justify-content: center; margin-top: 15px;">
-                <div class="color-circle color-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')" title="Латте (нубук) NL352L"></div>
-<div class="color-circle color-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')" title="Синя замша NL352zsib"></div>
-<div class="color-circle color-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')" title="Сіра замша NL352gz"></div>
-<div class="color-circle color-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')" title="Коричнева замша NL352zbr"></div>
-<div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
-<div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
-<div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
-<div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
+        <div class="product-info">
+            <h1>Літні чоловічі мокасини (з перфорацією)</h1>
+            
+            <div class="rating">
+                ★ ★ ★ ★ ★ <span class="r-val">4.9</span> <span class="r-count">(114 відгуків)</span>
+            </div>
 
+            <div class="price-wrap">
+                <div style="display: flex; flex-direction: column;">
+                    <span class="price-old">2800 ₴</span>
+                    <span class="price-new">2650 ₴</span>
+                </div>
+                <span class="in-stock">В наявності</span>
+            </div>
+            
+            <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
+
+            <div class="desktop-only">
+                <span class="selector-title">Оберіть колір: <span class="colorNameDisplay" style="color:#b17b44">Латте (нубук) NL352L</span></span>
+                <div class="color-options">
+                                        <div class="color-circle color-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')" title="Латте (нубук) NL352L"></div>
+                    <div class="color-circle color-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')" title="Синя замша NL352zsib"></div>
+                    <div class="color-circle color-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')" title="Сіра замша NL352gz"></div>
+                    <div class="color-circle color-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')" title="Коричнева замша NL352zbr"></div>
+                    <div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
+                    <div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
+                    <div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
+                    <div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
+
+                </div>
+            </div>
+
+            <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin-bottom: 10px; transition: 0.5s;">
+                <div class="selector-header">
+                    <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal; color:#b17b44">не обрано</span></span>
+                    <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
+                </div>
+                <div class="size-options">
+                    <button class="size-btn" onclick="selectSize(this)">39 (25.5см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">40 (26.5см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">41 (27см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">42 (27.5см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">43 (28см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">44 (29см)</button>
+                    <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
+                    
+                </div>
+            </div>
+
+            <button class="buy-btn pulse-btn desktop-only" onclick="openOrderModal()">Оформити замовлення</button>
+
+            <div class="delivery-info">
+                <h3>ДОСТАВКА ТА ОПЛАТА</h3>
+                <div class="delivery-item icon-box"><strong>Доставка по Україні:</strong> Новою Поштою або Укрпоштою. Якщо розмір є в наявності — відправка протягом 1-3 днів. Виготовлення під замовлення — до 7 днів.</div>
+                <div class="delivery-item icon-card"><strong>Оплата при отриманні:</strong> Жодних передоплат. Ви міряєте взуття у відділенні та оплачуєте після примірки.</div>
+                <div class="delivery-item icon-return"><strong>Гарантія:</strong> Обмін або повернення грошей протягом 14 днів.</div>
             </div>
         </div>
-
-        <div class="thumbnails-container" id="thumbnails"></div>
     </div>
 
-    <div class="product-info">
-        <h1>Літні чоловічі мокасини (з перфорацією)</h1>
-        
-        
-        <div class="rating">
-            ★★★★★ <span class="r-val">4.9</span> <span class="r-count">(114 відгуків)</span>
-        </div>
-
-        <div class="price-wrap">
-            <span class="old-price">2800 ₴</span>
-            <span class="price">2650 ₴</span>
-            <span class="stock-badge">В наявності</span>
-        </div>
-        
-        <p class="description">Легкі та дихаючі мокасини для справжнього комфорту влітку. Виконані повністю з натуральних матеріалів з наскрізною перфорацією.</p>
-
-        <div class="desktop-only">
-            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay" style="color:#b17b44">Латте (нубук) NL352L</span></span>
-            <div class="color-options">
-                <div class="color-circle color-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')" title="Латте (нубук) NL352L"></div>
-<div class="color-circle color-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')" title="Синя замша NL352zsib"></div>
-<div class="color-circle color-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')" title="Сіра замша NL352gz"></div>
-<div class="color-circle color-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')" title="Коричнева замша NL352zbr"></div>
-<div class="color-circle color-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')" title="Чорна шкіра NL352f"></div>
-<div class="color-circle color-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')" title="Чорна гладка шкіра NL352"></div>
-<div class="color-circle color-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')" title="Слонова кістка NL352w"></div>
-<div class="color-circle color-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')" title="Чорний нубук NL352N"></div>
-
+    <div class="faq-section fade-in-section">
+        <h2 class="faq-title">Часті запитання</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Як правильно обрати розмір?</span>
+                <span class="faq-icon">+</span>
             </div>
+            <div class="faq-answer">Натисніть на кнопку "Таблиця розмірів" біля вибору розміру. Там вказана інструкція, як правильно виміряти довжину стопи.</div>
         </div>
-
-        <div id="sizeSection" style="padding: 12px; border-radius: 8px; margin-bottom: 5px; transition: 0.5s;">
-            <div class="selector-header">
-                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:700; color:#d32f2f">не обрано</span></span>
-                <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Чи можу я повернути товар, якщо він не підійшов?</span>
+                <span class="faq-icon">+</span>
             </div>
-            <div class="size-options">
-                <button class="size-btn" onclick="selectSize(this)">39 (25.5см)</button>
-                <button class="size-btn" onclick="selectSize(this)">40 (26.5см)</button>
-                <button class="size-btn" onclick="selectSize(this)">41 (27см)</button>
-                <button class="size-btn" onclick="selectSize(this)">42 (27.5см)</button>
-                <button class="size-btn" onclick="selectSize(this)">43 (28см)</button>
-                <button class="size-btn" onclick="selectSize(this)">44 (29см)</button>
-                <button class="size-btn" onclick="selectSize(this)">45 (29.5см)</button>
+            <div class="faq-answer">Так, ви можете зробити обмін або повернення протягом 14 днів з моменту отримання, якщо взуття не має слідів носіння.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Чи потрібно платити передоплату?</span>
+                <span class="faq-icon">+</span>
             </div>
-        </div>
-
-        <button class="buy-btn pulse-btn desktop-only" onclick="openOrderModal()">🛒 Оформити замовлення</button>
-
-        <div class="delivery-info">
-            <h3>ДОСТАВКА ТА ОПЛАТА</h3>
-            <div class="delivery-item icon-box"><strong>Доставка по Україні:</strong> Новою Поштою або Укрпоштою. Якщо розмір є в наявності — відправка протягом 1-3 днів. Виготовлення під замовлення — до 7 днів.</div>
-            <div class="delivery-item icon-card"><strong>Оплата при отриманні:</strong> Жодних передоплат. Ви міряєте взуття у відділенні та оплачуєте після примірки.</div>
-            <div class="delivery-item icon-return"><strong>Гарантія:</strong> Обмін або повернення грошей протягом 14 днів.</div>
+            <div class="faq-answer">Ні, ми відправляємо замовлення післяплатою. Ви міряєте взуття у відділенні пошти, і тільки після цього оплачуєте.</div>
         </div>
     </div>
-</div>
 
-<div class="color-showcase-section fade-in-section">
-    <h2 class="reviews-title">Також дивіться інші кольори</h2>
-    <div class="color-showcase-grid">
-        <div class="color-showcase-item showcase-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')">
-            <img src="latte_1.jpg" alt="Латте (нубук) NL352L" onerror="this.style.display='none'"><span>Латте (нубук) NL352L</span>
+    <div class="about-section fade-in-section">
+        <div class="about-content">
+            <h2>ПРО КОМПАНІЮ</h2>
+            <p style="font-size: 18px; font-weight: bold; color: #fff; margin-bottom: 25px;">PARA — взуття, розраховане на роки.</p>
+            <p>Ми не просто продаємо взуття — ми особисто відбираємо найкращі моделі від українських виробників, які проходять нашу жорстку перевірку на якість та міцність.</p>
+            
+            <div style="text-align: left; margin: 30px auto; max-width: 750px; padding: 0 20px;">
+                <p style="margin-bottom: 15px; color: #ccc;"><strong>100% Натуральність.</strong> Тільки шкіра, нубук та замша. Жодного пластику чи замінників — вони просто не витримують реальних навантажень так, як натуральний матеріал.</p>
+                <p style="margin-bottom: 15px; color: #ccc;"><strong>Витривалість.</strong> Поки мас-маркет втрачає вигляд за сезон, наше взуття служить роками. Це робота українських майстрів із запасом міцності, що значно випереджає стандарти популярних брендів.</p>
+                <p style="margin-bottom: 0; color: #ccc;"><strong>Раціональний вибір.</strong> Найкращий внесок в екологію — це річ, яку не доведеться викидати за рік. Якісна шкіра — це інвестиція у довговічність, а не в одноразові речі.</p>
+            </div>
+            
+            <div class="about-footer" style="color: #b17b44; font-size: 22px; text-transform: uppercase;">PARA — фокус на справжньому.</div>
         </div>
-<div class="color-showcase-item showcase-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')">
-            <img src="blue_1.jpg" alt="Синя замша NL352zsib" onerror="this.style.display='none'"><span>Синя замша NL352zsib</span>
-        </div>
-<div class="color-showcase-item showcase-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')">
-            <img src="gray_1.jpg" alt="Сіра замша NL352gz" onerror="this.style.display='none'"><span>Сіра замша NL352gz</span>
-        </div>
-<div class="color-showcase-item showcase-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')">
-            <img src="brown_1.jpg" alt="Коричнева замша NL352zbr" onerror="this.style.display='none'"><span>Коричнева замша NL352zbr</span>
-        </div>
-<div class="color-showcase-item showcase-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')">
-            <img src="black_1.jpg" alt="Чорна шкіра NL352f" onerror="this.style.display='none'"><span>Чорна шкіра NL352f</span>
-        </div>
-<div class="color-showcase-item showcase-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')">
-            <img src="black_smooth_1.jpg" alt="Чорна гладка шкіра NL352" onerror="this.style.display='none'"><span>Чорна гладка шкіра NL352</span>
-        </div>
-<div class="color-showcase-item showcase-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')">
-            <img src="ivory_1.jpg" alt="Слонова кістка NL352w" onerror="this.style.display='none'"><span>Слонова кістка NL352w</span>
-        </div>
-<div class="color-showcase-item showcase-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')">
-            <img src="DSC_0365.jpg" alt="Чорний нубук NL352N" onerror="this.style.display='none'"><span>Чорний нубук NL352N</span>
-        </div>
+    </div>
 
-    </div>
-</div>
+    <div class="color-showcase-section fade-in-section">
+        <h2 class="reviews-title">Також дивіться інші кольори</h2>
+        <div class="color-showcase-grid">
+                        <div class="color-showcase-item showcase-color_0 active" onclick="selectColor('Латте (нубук) NL352L', 'color_0')">
+                <img src='latte_1.jpg' alt="Латте (нубук) NL352L" onerror="this.style.display='none'"><span>Латте (нубук) NL352L</span>
+            </div>
+            <div class="color-showcase-item showcase-color_1" onclick="selectColor('Синя замша NL352zsib', 'color_1')">
+                <img src='blue_1.jpg' alt="Синя замша NL352zsib" onerror="this.style.display='none'"><span>Синя замша NL352zsib</span>
+            </div>
+            <div class="color-showcase-item showcase-color_2" onclick="selectColor('Сіра замша NL352gz', 'color_2')">
+                <img src='gray_1.jpg' alt="Сіра замша NL352gz" onerror="this.style.display='none'"><span>Сіра замша NL352gz</span>
+            </div>
+            <div class="color-showcase-item showcase-color_3" onclick="selectColor('Коричнева замша NL352zbr', 'color_3')">
+                <img src='brown_1.jpg' alt="Коричнева замша NL352zbr" onerror="this.style.display='none'"><span>Коричнева замша NL352zbr</span>
+            </div>
+            <div class="color-showcase-item showcase-color_4" onclick="selectColor('Чорна шкіра NL352f', 'color_4')">
+                <img src='black_1.jpg' alt="Чорна шкіра NL352f" onerror="this.style.display='none'"><span>Чорна шкіра NL352f</span>
+            </div>
+            <div class="color-showcase-item showcase-color_5" onclick="selectColor('Чорна гладка шкіра NL352', 'color_5')">
+                <img src='black_smooth_1.jpg' alt="Чорна гладка шкіра NL352" onerror="this.style.display='none'"><span>Чорна гладка шкіра NL352</span>
+            </div>
+            <div class="color-showcase-item showcase-color_6" onclick="selectColor('Слонова кістка NL352w', 'color_6')">
+                <img src='ivory_1.jpg' alt="Слонова кістка NL352w" onerror="this.style.display='none'"><span>Слонова кістка NL352w</span>
+            </div>
+            <div class="color-showcase-item showcase-color_7" onclick="selectColor('Чорний нубук NL352N', 'color_7')">
+                <img src='DSC_0365.jpg' alt="Чорний нубук NL352N" onerror="this.style.display='none'"><span>Чорний нубук NL352N</span>
+            </div>
 
-<!-- Блок FAQ -->
-<div class="faq-section fade-in-section">
-    <h2 class="faq-title">Часті запитання</h2>
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Як правильно обрати розмір?</span>
-            <span class="faq-icon">+</span>
         </div>
-        <div class="faq-answer">Натисніть на кнопку "Таблиця розмірів" біля вибору розміру. Там вказана інструкція, як правильно виміряти довжину стопи.</div>
     </div>
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Чи можу я повернути товар, якщо він не підійшов?</span>
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">Так, ви можете зробити обмін або повернення протягом 14 днів з моменту отримання, якщо взуття не має слідів носіння.</div>
-    </div>
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Чи потрібно платити передоплату?</span>
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">Ні, ми відправляємо замовлення післяплатою. Ви міряєте взуття у відділенні пошти, і тільки після цього оплачуєте.</div>
-    </div>
-</div>
 
-<div class="reviews-section fade-in-section">
-    <h2 class="reviews-title">Відгуки наших покупців</h2>
-    <div class="slider-wrapper">
-        <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
-        <div class="reviews-slider" id="reviewsSlider">
-            <div class="review-card"><img src="review_1.jpg" alt="Відгук 1" onerror="this.style.display='none'"></div>
+    <div class="reviews-section fade-in-section">
+        <h2 class="reviews-title">Відгуки наших покупців</h2>
+        <div class="slider-wrapper">
+            <button class="nav-arrow prev-btn desktop-only" onclick="slideReviews(-1)" style="position: absolute; left: 0;">❮</button>
+            <div class="reviews-slider" id="reviewsSlider">
+                <div class="review-card"><img src="review_1.jpg" alt="Відгук 1" onerror="this.style.display='none'"></div>
 <div class="review-card"><img src="review_2.jpg" alt="Відгук 2" onerror="this.style.display='none'"></div>
 <div class="review-card"><img src="review_3.jpg" alt="Відгук 3" onerror="this.style.display='none'"></div>
 <div class="review-card"><img src="review_4.jpg" alt="Відгук 4" onerror="this.style.display='none'"></div>
 <div class="review-card"><img src="review_5.jpg" alt="Відгук 5" onerror="this.style.display='none'"></div>
 
-        </div>
-        <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
-    </div>
-</div>
-
-<div class="about-section fade-in-section">
-    <div class="about-content">
-        <h2>ПРО КОМПАНІЮ</h2>
-        <p>Braxton shoes — українська компанія з характером. Ми поєднуємо традиції ремесла з сучасним підходом до якості на кожному етапі: від розробки моделі до фінального виробу.</p>
-        <p>Наша мета — створювати продукт, який служить довго та говорить сам за себе.</p>
-        <div class="about-footer">Braxton Legacy — сила традиції.</div>
-    </div>
-</div>
-
-<div class="mobile-sticky-buy mobile-only">
-    <div class="sticky-price">
-        <span class="st-old">2800 ₴</span>
-        <span class="st-new">2650 ₴</span>
-    </div>
-    <button class="buy-btn" onclick="openOrderModal()">🛒 Купити</button>
-</div>
-
-<!-- Модалка Замовлення -->
-<div id="orderModal" class="modal" onclick="closeOrderModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="closeOrderModal(event)">×</span>
-        <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 800;">Оформлення замовлення</h3>
-        
-        <div id="orderSummary" class="order-summary"></div>
-
-        <form onsubmit="sendFinalOrder(event)" id="mainForm">
-            <div class="form-group">
-                <label>Прізвище та Ім'я *</label>
-                <input type="text" id="custName" required="" placeholder="Іваненко Іван">
             </div>
-            <div class="form-group">
-                <label>Номер телефону *</label>
-                <input type="tel" id="custPhone" required="" placeholder="+38 (09X) XXX XX XX" maxlength="20">
-            </div>
-            <div class="form-group">
-                <label>Населений пункт *</label>
-                <input type="text" id="custCity" required="" placeholder="м. Київ">
-            </div>
-            <div class="form-group">
-                <label>Відділення пошти *</label>
-                <input type="text" id="custPost" required="" placeholder="Нова Пошта №15">
-            </div>
-            <div class="form-group">
-                <label>Коментар (необов'язково)</label>
-                <input type="text" id="custComment" placeholder="Побажання до замовлення">
-            </div>
-            <button type="submit" class="buy-btn" id="subBtn" style="margin-top: 10px;">Підтвердити замовлення</button>
-        </form>
-        <div id="successMsg" style="display:none; padding: 30px 0;">
-            <div style="font-size: 60px; margin-bottom: 10px;">✅</div>
-            <h3 style="color: #27ae60; font-size: 26px; margin-bottom: 15px;">Дякуємо!</h3>
-            <p style="font-size: 16px; color: #555;">Замовлення успішно прийнято.<br>Ми зв'яжемося з вами найближчим часом для підтвердження.</p>
-            <button class="buy-btn" style="margin-top: 25px; padding: 15px; font-size: 16px; background: #111;" onclick="closeOrderModal(event)">Закрити</button>
+            <button class="nav-arrow next-btn desktop-only" onclick="slideReviews(1)" style="position: absolute; right: 0;">❯</button>
         </div>
     </div>
-</div>
 
-<!-- Модалка Таблиці розмірів -->
-<div id="sizeGuideModal" class="modal" onclick="toggleSizeModal(false)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="toggleSizeModal(false)">×</span>
-        <h3 style="font-size: 22px; font-weight: 800;">Таблиця розмірів</h3>
-        <img src="size-guide.jpg" alt="Таблиця розмірів" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-    </div>
-</div>
-
-<!-- Lightbox для перегляду та зуму фото (Повноекранний режим) -->
-<div id="imageLightbox" class="modal" onclick="closeLightbox(event)" style="padding: 0; justify-content: center; align-items: center;">
-    <span class="close-modal" style="color: #fff; font-size: 40px; right: 20px; top: 15px; position: absolute; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); cursor: pointer;">×</span>
-    <div id="lbCounter" style="position: absolute; top: 25px; left: 20px; color: #fff; font-size: 16px; font-weight: 600; z-index: 2005; text-shadow: 0 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px;"></div>
-    
-    <button class="nav-arrow desktop-only" style="position: absolute; left: 20px; z-index: 2002;" onclick="changeImageByStep(-1); event.stopPropagation();">❮</button>
-    
-    <div id="lightboxWrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: auto; position: relative;">
-        <img id="lightboxImage" src="" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: opacity 0.2s ease;">
+    <div class="mobile-sticky-buy mobile-only">
+        <div class="sticky-price">
+            <span class="st-old">2800 ₴</span>
+            <span class="st-new">2650 ₴</span>
+        </div>
+        <button class="buy-btn" onclick="openOrderModal()">🛒 Купити</button>
     </div>
 
-    <button class="nav-arrow desktop-only" style="position: absolute; right: 20px; z-index: 2002;" onclick="changeImageByStep(1); event.stopPropagation();">❯</button>
-</div>
+    <div id="orderModal" class="modal" onclick="closeOrderModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeOrderModal(event)">×</span>
+            <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 800;">Оформлення замовлення</h3>
+            
+            <div id="orderSummary" class="order-summary"></div>
+
+            <form onsubmit="sendFinalOrder(event)" id="mainForm">
+                <div class="form-group">
+                    <label>Прізвище та Ім'я *</label>
+                    <input type="text" id="custName" required="" placeholder="Іваненко Іван">
+                </div>
+                <div class="form-group">
+                    <label>Номер телефону *</label>
+                    <input type="tel" id="custPhone" required="" placeholder="+38 (09X) XXX XX XX" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Населений пункт *</label>
+                    <input type="text" id="custCity" required="" placeholder="м. Київ">
+                </div>
+                <div class="form-group">
+                    <label>Відділення пошти *</label>
+                    <input type="text" id="custPost" required="" placeholder="Нова Пошта №15">
+                </div>
+                <div class="form-group">
+                    <label>Коментар (необов'язково)</label>
+                    <input type="text" id="custComment" placeholder="Побажання до замовлення">
+                </div>
+                <button type="submit" class="buy-btn" id="subBtn">Підтвердити замовлення</button>
+            </form>
+            <div id="successMsg" style="display:none; padding: 20px 0; text-align: center;">
+                <div style="font-size: 50px; margin-bottom: 10px;">✅</div>
+                <h3 style="color: #27ae60; font-size: 24px; font-weight: 800;">Дякуємо!</h3>
+                <p style="color: #555; font-size: 16px;">Ваше замовлення успішно прийнято.<br>Ми зв'яжемося з вами найближчим часом.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="sizeGuideModal" class="modal" onclick="toggleSizeModal(false)">
+        <div class="modal-content" onclick="event.stopPropagation()" style="text-align: center;">
+            <span class="close-modal" onclick="toggleSizeModal(false)">×</span>
+            <h3 style="font-size: 22px; font-weight: 800;">Таблиця розмірів</h3>
+            <img src="size-guide.jpg" alt="Таблиця розмірів" style="width: 100%; height: auto; border-radius: 8px; margin-top: 15px; display: block;">
+        </div>
+    </div>
+
+    <div id="imageLightbox" class="modal" onclick="closeLightbox(event)">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 2100; background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);">
+            <span id="lbCounter" style="color: #fff; font-size: 16px; font-weight: 600;">1 / 5</span>
+            <span class="close-modal" style="position: static; color: white; font-size: 35px;" onclick="closeLightbox(event)">×</span>
+        </div>
+        <div class="lightbox-img-wrap" id="lbImgWrap">
+            <img id="lightboxImage" src="">
+        </div>
+        <div style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: rgba(255,255,255,0.7); font-size: 12px; pointer-events: none;">
+            Свайпайте для перемикання • Зведіть пальці для зуму
+        </div>
+    </div>
 
 <script>
     const productImages = {
-        'color_0':['latte_1.jpg','latte_2.jpg','latte_3.jpg','latte_4.jpg','latte_5.jpg','latte_6.jpg'],
-'color_1':['blue_1.jpg','blue_2.jpg','blue_3.jpg','blue_4.jpg','blue_5.jpg','blue_6.jpg'],
-'color_2':['gray_1.jpg','gray_2.jpg','gray_3.jpg','gray_4.jpg'],
-'color_3':['brown_1.jpg','brown_2.jpg','brown_3.jpg'],
-'color_4':['black_1.jpg','black_2.jpg','black_3.jpg','black_4.jpg','black_5.jpg','black_6.jpg'],
-'color_5':['black_smooth_1.jpg','black_smooth_2.jpg','black_smooth_3.jpg','black_smooth_4.jpg','black_smooth_5.jpg'],
-'color_6':['ivory_1.jpg','ivory_2.jpg','ivory_3.jpg','ivory_4.jpg','ivory_5.jpg','ivory_6.jpg'],
-'color_7':['DSC_0365.jpg','DSC_0358.jpg','DSC_0359.jpg','DSC_0361.jpg','DSC_0363.jpg','DSC_0364.jpg'],
+                'color_0': ['latte_1.jpg', 'latte_2.jpg', 'latte_3.jpg', 'latte_4.jpg', 'latte_5.jpg', 'latte_6.jpg'],
+        'color_1': ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg'],
+        'color_2': ['gray_1.jpg', 'gray_2.jpg', 'gray_3.jpg', 'gray_4.jpg'],
+        'color_3': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg'],
+        'color_4': ['black_1.jpg', 'black_2.jpg', 'black_3.jpg', 'black_4.jpg', 'black_5.jpg', 'black_6.jpg'],
+        'color_5': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg', 'black_smooth_5.jpg'],
+        'color_6': ['ivory_1.jpg', 'ivory_2.jpg', 'ivory_3.jpg', 'ivory_4.jpg', 'ivory_5.jpg', 'ivory_6.jpg'],
+        'color_7': ['DSC_0365.jpg', 'DSC_0358.jpg', 'DSC_0359.jpg', 'DSC_0361.jpg', 'DSC_0363.jpg', 'DSC_0364.jpg'],
 
     };
 
     let activeColorKey = 'color_0';
     let activeColorName = 'Латте (нубук) NL352L';
     let activeSize = '';
-    let imgIdx = 0;
-
-    const mainImageEl = document.getElementById('mainImage');
-    const swipeArea = document.getElementById('swipeArea');
-
-    // Лупа на десктопі
-    swipeArea.addEventListener('mousemove', (e) => {
-        if(window.innerWidth > 768) {
-            const rect = swipeArea.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width * 100;
-            const y = (e.clientY - rect.top) / rect.height * 100;
-            mainImageEl.style.transformOrigin = `${x}% ${y}%`;
-            mainImageEl.style.transform = "scale(1.8)";
-        }
-    });
-    swipeArea.addEventListener('mouseleave', () => {
-        mainImageEl.style.transformOrigin = "center center";
-        mainImageEl.style.transform = "scale(1)";
-    });
-
-    // Свайп на головній картинці (Мобільний)
-    let ts = 0;
-    swipeArea.addEventListener('touchstart', e => { ts = e.changedTouches[0].screenX; }, {passive: true});
-    swipeArea.addEventListener('touchend', e => { 
-        let te = e.changedTouches[0].screenX; 
-        if (te < ts - 40) changeImageByStep(1);
-        if (te > ts + 40) changeImageByStep(-1);
-    }, {passive: true});
+    let currentSlideIndex = 0;
 
     function selectColor(name, key) {
         activeColorKey = key;
         activeColorName = name;
-        imgIdx = 0;
+        currentSlideIndex = 0;
+        
         document.querySelectorAll('.colorNameDisplay').forEach(el => el.innerText = name);
         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.color-'+key).forEach(c => c.classList.add('active'));
@@ -508,7 +488,7 @@
         const showcaseItem = document.querySelector('.showcase-'+key);
         if(showcaseItem) showcaseItem.classList.add('active');
 
-        updateGallery();
+        renderGallery();
         document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         if (history.replaceState) {
@@ -519,62 +499,131 @@
         }
     }
 
-    function updateGallery() {
+    function renderGallery() {
         const imgs = productImages[activeColorKey];
-        mainImageEl.style.opacity = '0.3';
+        if(!imgs || imgs.length === 0) return;
         
-        const lbImg = document.getElementById('lightboxImage');
-        const isLightboxOpen = document.getElementById('imageLightbox').style.display === 'flex';
-        if(isLightboxOpen && lbImg) lbImg.style.opacity = '0.3';
+        updateGalleryImage();
         
-        setTimeout(() => {
-            mainImageEl.src = imgs[imgIdx];
-            mainImageEl.style.opacity = '1';
-            
-            if(isLightboxOpen && lbImg) {
-                lbImg.src = imgs[imgIdx];
-                lbImg.style.opacity = '1';
-            }
-        }, 150);
+        const dotsContainer = document.getElementById('imagePagination');
+        const thumbsContainer = document.getElementById('thumbnails');
+        dotsContainer.innerHTML = '';
+        thumbsContainer.innerHTML = '';
+        
+        imgs.forEach((imgSrc, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => { currentSlideIndex = i; updateGalleryImage(); };
+            dotsContainer.appendChild(dot);
 
-        // Оновлення мініатюр
-        const thumbs = document.getElementById('thumbnails');
-        thumbs.innerHTML = '';
-        imgs.forEach((img, i) => {
-            const t = document.createElement('img');
-            t.src = img;
-            t.alt = "Мініатюра " + activeColorName;
-            t.className = 'thumbnail' + (i === imgIdx ? ' active' : '');
-            t.onclick = (e) => { e.stopPropagation(); imgIdx = i; updateGallery(); };
-            thumbs.appendChild(t);
+            const thumb = document.createElement('img');
+            thumb.src = imgSrc;
+            thumb.className = 'thumbnail' + (i === 0 ? ' active' : '');
+            thumb.onclick = () => { currentSlideIndex = i; updateGalleryImage(); };
+            thumbsContainer.appendChild(thumb);
         });
-
-        // Оновлення точок пагінації
-        const pagination = document.getElementById('imagePagination');
-        if(pagination) {
-            pagination.innerHTML = '';
-            if(imgs.length > 1) {
-                imgs.forEach((_, i) => {
-                    const d = document.createElement('div');
-                    d.className = 'dot' + (i === imgIdx ? ' active' : '');
-                    pagination.appendChild(d);
-                });
-            }
-        }
-        
-        // Оновлення лічильника в Lightbox
-        const lbCounter = document.getElementById('lbCounter');
-        if(lbCounter && imgs.length > 0) {
-            lbCounter.innerText = (imgIdx + 1) + ' / ' + imgs.length;
-        }
     }
 
-    function changeImageByStep(s) {
+    function updateGalleryImage() {
         const imgs = productImages[activeColorKey];
-        imgIdx = (imgIdx + s + imgs.length) % imgs.length;
-        updateGallery();
+        if(!imgs) return;
+        
+        document.getElementById('mainImage').src = imgs[currentSlideIndex];
+        
+        document.querySelectorAll('#imagePagination .dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlideIndex);
+        });
+        document.querySelectorAll('#thumbnails .thumbnail').forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === currentSlideIndex);
+        });
     }
 
+    function scrollGallery(direction) {
+        const imgs = productImages[activeColorKey];
+        if(!imgs) return;
+        
+        currentSlideIndex += direction;
+        if (currentSlideIndex < 0) currentSlideIndex = imgs.length - 1;
+        if (currentSlideIndex >= imgs.length) currentSlideIndex = 0;
+        
+        updateGalleryImage();
+        
+        if (document.getElementById('imageLightbox').style.display === 'flex') {
+            document.getElementById('lightboxImage').src = imgs[currentSlideIndex];
+            document.getElementById('lbCounter').innerText = (currentSlideIndex + 1) + ' / ' + imgs.length;
+        }
+    }
+
+    // --- КЛАСИЧНИЙ СВАЙП (1 свайп = 1 фото) ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleSwipeGesture() {
+        if (touchEndX < touchStartX - 40) scrollGallery(1);  // Свайп вліво -> Наступне фото
+        if (touchEndX > touchStartX + 40) scrollGallery(-1); // Свайп вправо -> Попереднє фото
+    }
+
+    // Свайп для головного фото
+    const mainImgWrap = document.getElementById('mainImageWrap');
+    mainImgWrap.addEventListener('touchstart', e => { 
+        if(e.touches.length === 1) touchStartX = e.changedTouches[0].screenX; 
+    }, {passive: true});
+    mainImgWrap.addEventListener('touchend', e => { 
+        if(e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].screenX; 
+            handleSwipeGesture(); 
+        }
+    }, {passive: true});
+
+    // --- ЛУПА ДЛЯ ДЕСКТОПА ---
+    const mainImage = document.getElementById('mainImage');
+    mainImage.addEventListener('mousemove', function(e) {
+        if(window.innerWidth > 768) {
+            const rect = this.parentElement.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width * 100;
+            const y = (e.clientY - rect.top) / rect.height * 100;
+            this.style.transformOrigin = `${x}% ${y}%`;
+            this.style.transform = "scale(2)";
+        }
+    });
+    mainImage.addEventListener('mouseleave', function() {
+        this.style.transformOrigin = "center center";
+        this.style.transform = "scale(1)";
+    });
+
+    // --- ЛАЙТБОКС (Мобільний зум та свайп) ---
+    function openLightbox() {
+        if(window.innerWidth > 768) return; // На комп'ютері працює лупа
+        const imgs = productImages[activeColorKey];
+        
+        document.getElementById('lightboxImage').src = imgs[currentSlideIndex];
+        document.getElementById('lbCounter').innerText = (currentSlideIndex + 1) + ' / ' + imgs.length;
+        document.getElementById('imageLightbox').style.display = 'flex';
+        history.pushState({ modal: 'lightbox' }, '');
+    }
+
+    function closeLightbox(e) {
+        // Якщо клік був по картинці - не закриваємо, дозволяємо зум
+        if(e && e.target && e.target.tagName === 'IMG') return; 
+        document.getElementById('imageLightbox').style.display = 'none';
+        if (history.state && history.state.modal === 'lightbox') {
+            history.back();
+        }
+    }
+
+    // Свайп всередині лайтбоксу
+    const lbImgWrap = document.getElementById('lbImgWrap');
+    lbImgWrap.addEventListener('touchstart', e => { 
+        if(e.touches.length === 1) touchStartX = e.changedTouches[0].screenX; 
+    }, {passive: true});
+    lbImgWrap.addEventListener('touchend', e => { 
+        if(e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].screenX; 
+            handleSwipeGesture(); 
+        }
+    }, {passive: true});
+
+    // Свайп відгуків
     function slideReviews(direction) {
         document.getElementById('reviewsSlider').scrollBy({ left: direction * 330, behavior: 'smooth' });
     }
@@ -583,92 +632,31 @@
         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSize = btn.innerText;
-        
         const sizeText = document.getElementById('sizeText');
         sizeText.innerText = activeSize;
         sizeText.style.color = '#111';
         document.getElementById('sizeSection').style.backgroundColor = 'transparent';
     }
-    
+
     function toggleFaq(el) {
         const item = el.parentElement;
         item.classList.toggle('active');
     }
-
-    // --- Логіка Lightbox (Повноекранне фото та свайп) ---
-    function openLightbox() {
-        if(window.innerWidth > 768) return; // На ПК працює лупа, Lightbox тільки для мобільних
-        
-        document.getElementById('lightboxImage').src = document.getElementById('mainImage').src;
-        document.getElementById('imageLightbox').style.display = 'flex';
-        
-        const imgs = productImages[activeColorKey];
-        document.getElementById('lbCounter').innerText = (imgIdx + 1) + ' / ' + imgs.length;
-        
-        // Додаємо запис в історію браузера, щоб працювала кнопка "Назад" на телефоні
-        history.pushState({ modal: 'lightbox' }, '');
-    }
-
-    function closeLightbox(e) {
-        // Закриваємо тільки якщо клік не по самому фото
-        if(e && e.target && e.target.id !== 'imageLightbox' && !e.target.classList.contains('close-modal') && e.target.id !== 'lightboxWrapper') {
-            return;
-        }
-        document.getElementById('imageLightbox').style.display = 'none';
-        
-        // Якщо закрили вручну, а не кнопкою Назад
-        if (history.state && history.state.modal === 'lightbox') {
-            history.back();
-        }
-    }
-
-    // Свайп в Lightbox (гортання або переміщення)
-    const lbWrapper = document.getElementById('lightboxWrapper');
-    let lb_ts = null;
-    let lb_ts_y = null;
-    
-    lbWrapper.addEventListener('touchstart', e => { 
-        if(e.touches.length === 1) { // Тільки якщо 1 палець (не pinch-zoom)
-            lb_ts = e.changedTouches[0].screenX; 
-            lb_ts_y = e.changedTouches[0].screenY; 
-        } else {
-            lb_ts = null; 
-        }
-    }, {passive: true});
-    
-    lbWrapper.addEventListener('touchend', e => { 
-        if(lb_ts === null) return; 
-        
-        // Якщо користувач наблизив сторінку (наприклад, пальцями), ми НЕ гортаємо фото, 
-        // а дозволяємо йому вільно переміщати (scroll) наближену картинку
-        const scale = window.visualViewport ? window.visualViewport.scale : 1;
-        if (scale > 1.1) return;
-        
-        let te = e.changedTouches[0].screenX; 
-        let te_y = e.changedTouches[0].screenY; 
-        
-        // Свайп працює тільки якщо він був чітко по горизонталі, а не по вертикалі
-        if (Math.abs(lb_ts - te) > 40 && Math.abs(lb_ts_y - te_y) < 60) {
-            if (lb_ts - te > 40) changeImageByStep(1); 
-            else if (te - lb_ts > 40) changeImageByStep(-1); 
-        }
-    }, {passive: true});
-
 
     function openOrderModal() { 
         if(!activeSize) { 
             const sizeBlock = document.getElementById('sizeSection');
             sizeBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
             sizeBlock.style.backgroundColor = '#ffe0e0';
-            setTimeout(() => sizeBlock.style.backgroundColor = 'transparent', 1000);
+            setTimeout(() => sizeBlock.style.backgroundColor = 'transparent', 1500);
             return; 
         } 
         
         document.getElementById('orderSummary').innerHTML = `
-            <div><b>Товар:</b> Літні чоловічі мокасини (з перфорацією)</div>
-            <div style="margin-top: 5px;"><b>Колір:</b> ${activeColorName}</div>
-            <div style="margin-top: 5px;"><b>Розмір:</b> ${activeSize}</div>
-            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; font-size: 16px;"><b>Вартість:</b> <span style="color: #d32f2f; font-weight: 800;">2650 ₴</span></div>
+            <div><strong>Модель:</strong> Літні чоловічі мокасини (з перфорацією)</div>
+            <div style="margin: 5px 0;"><strong>Колір:</strong> ${activeColorName}</div>
+            <div><strong>Розмір:</strong> ${activeSize}</div>
+            <div style="margin-top: 10px; font-size: 18px; color: #d32f2f;"><strong>Сума:</strong> <span style="font-weight: 800;">2650 ₴</span></div>
         `;
 
         document.getElementById('mainForm').style.display = 'block';
@@ -683,7 +671,6 @@
 
     function closeOrderModal(e) { 
         if(e && e.target && e.target.id !== 'orderModal' && !e.target.classList.contains('close-modal')) return;
-        
         document.getElementById('orderModal').style.display = 'none'; 
         if (history.state && history.state.modal === 'order') {
             history.back();
@@ -700,12 +687,11 @@
             }
         }
     }
-    
-    // Обробка апаратної кнопки "Назад" на телефоні або свайпу назад
+
     window.addEventListener('popstate', function(e) {
-        document.getElementById('imageLightbox').style.display = 'none';
         document.getElementById('orderModal').style.display = 'none';
         document.getElementById('sizeGuideModal').style.display = 'none';
+        document.getElementById('imageLightbox').style.display = 'none';
     });
 
     function sendFinalOrder(e) {
@@ -737,9 +723,17 @@
 
         function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
+        // Перехоплення UTM-міток
+        const currentUrlParams = new URLSearchParams(window.location.search);
+        let utmInfo = '';
+        if(currentUrlParams.has('utm_source')) {
+            utmInfo = `\n\n📊 <b>Аналітика:</b>\nДжерело: ${esc(currentUrlParams.get('utm_source'))}\nКампанія: ${esc(currentUrlParams.get('utm_campaign') || '-')}\nКреатив: ${esc(currentUrlParams.get('utm_content') || '-')}\nАудиторія: ${esc(currentUrlParams.get('utm_term') || '-')}`;
+        }
+
         let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Літні чоловічі мокасини (з перфорацією)`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2650 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
         
         if (comment.trim() !== "") text += `\nКоментар: ${esc(comment)}`;
+        text += utmInfo; 
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         const chatsStr = "8345637105, -5150186307";
@@ -748,7 +742,8 @@
         let replyMarkup = '';
         if (cleanPhone.length >= 10) {
             const kb = {
-                inline_keyboard: [[
+                inline_keyboard: [
+                    [
                         { text: "💬 Telegram", url: "https://t.me/+" + linkPhone },
                         { text: "💜 Viber (msng.link)", url: "https://msng.link/vi/" + linkPhone }
                     ]
@@ -779,8 +774,8 @@
                         content_type: 'product',
                         value: Number('2650'),
                         currency: 'UAH',
-                        contents:[{
-                            content_id: 'braxton_item',
+                        contents: [{
+                            content_id: 'para_item',
                             content_type: 'product',
                             content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
                         }]
@@ -803,6 +798,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
 
+    // Ініціалізація сторінки
     const urlParams = new URLSearchParams(window.location.search);
     const variantIndex = urlParams.get('v');
     
