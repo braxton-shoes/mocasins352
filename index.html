@@ -617,6 +617,9 @@
         if(e.touches.length === 1) touchStartX = e.changedTouches[0].screenX; 
     }, {passive: true});
     lbImgWrap.addEventListener('touchend', e => { 
+        // Якщо картинка збільшена (зум), вимикаємо перелистування, щоб можна було рухати фото
+        if (window.visualViewport && window.visualViewport.scale > 1.01) return;
+
         if(e.changedTouches.length === 1) {
             touchEndX = e.changedTouches[0].screenX; 
             handleSwipeGesture(); 
@@ -723,17 +726,9 @@
 
         function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-        // Перехоплення UTM-міток
-        const currentUrlParams = new URLSearchParams(window.location.search);
-        let utmInfo = '';
-        if(currentUrlParams.has('utm_source')) {
-            utmInfo = `\n\n📊 <b>Аналітика:</b>\nДжерело: ${esc(currentUrlParams.get('utm_source'))}\nКампанія: ${esc(currentUrlParams.get('utm_campaign') || '-')}\nКреатив: ${esc(currentUrlParams.get('utm_content') || '-')}\nАудиторія: ${esc(currentUrlParams.get('utm_term') || '-')}`;
-        }
-
         let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Літні чоловічі мокасини (з перфорацією)`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2650 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
         
         if (comment.trim() !== "") text += `\nКоментар: ${esc(comment)}`;
-        text += utmInfo; 
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         const chatsStr = "8345637105, -5150186307";
