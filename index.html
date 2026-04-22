@@ -424,12 +424,17 @@
                 </div>
                 <div class="form-group">
                     <label>Відділення пошти *</label>
-                    <input type="text" id="custPost" required="" placeholder="Нова Пошта №15">
+                    <input type="text" id="custPost" required="" placeholder="(напр. НП 15 або укр пошта 62103)">
                 </div>
                 <div class="form-group">
                     <label>Коментар (необов'язково)</label>
                     <input type="text" id="custComment" placeholder="Побажання до замовлення">
                 </div>
+                
+                <div style="background: #fff8e1; border: 1px solid #ffe082; color: #b08d00; padding: 12px; border-radius: 8px; font-size: 13px; margin-bottom: 15px; line-height: 1.4; text-align: left;">
+                    📞 <b>Увага:</b> Наш менеджер зателефонує вам для підтвердження деталей. Будь ласка, переконайтеся, що ви вказали <b>актуальний номер</b> телефону!
+                </div>
+                
                 <button type="submit" class="buy-btn" id="subBtn">Підтвердити замовлення</button>
             </form>
             <div id="successMsg" style="display:none; padding: 20px 0; text-align: center;">
@@ -670,7 +675,8 @@
         document.getElementById('successMsg').style.display = 'none';
         document.getElementById('subBtn').disabled = false;
         document.getElementById('subBtn').innerText = 'Підтвердити замовлення';
-        document.getElementById('mainForm').reset(); 
+        
+        // Очищення форми прибрано звідси! Форма зберігає введені дані.
 
         document.getElementById('orderModal').style.display = 'flex'; 
         history.pushState({ modal: 'order' }, '');
@@ -707,14 +713,23 @@
         btn.disabled = true;
         btn.innerText = 'Відправка...';
 
-        const firstName = document.getElementById('custFirstName').value;
-        const lastName = document.getElementById('custLastName').value;
+        const firstName = document.getElementById('custFirstName').value.trim();
+        const lastName = document.getElementById('custLastName').value.trim();
         const name = firstName + ' ' + lastName;
-        const rawPhone = document.getElementById('custPhone').value;
-        const city = document.getElementById('custCity').value;
-        const post = document.getElementById('custPost').value;
-        const comment = document.getElementById('custComment').value;
+        const rawPhone = document.getElementById('custPhone').value.trim();
+        const city = document.getElementById('custCity').value.trim();
+        const post = document.getElementById('custPost').value.trim();
+        const comment = document.getElementById('custComment').value.trim();
 
+        // 1. Перевірка імені на цифри (не повинно бути цифр)
+        if (/\d/.test(name)) {
+            alert('❌ Ім\'я та Прізвище не можуть містити цифри!');
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
+            return;
+        }
+
+        // 2. Перевірка телефону
         let cleanPhone = rawPhone.replace(/\D/g, ''); 
         if (cleanPhone.length < 9) {
             alert('❌ Будь ласка, введіть коректний номер телефону!');
@@ -723,6 +738,27 @@
             return; 
         }
 
+        // 3. Перевірка міста (мінімум 3 букви)
+        if (city.length < 3) {
+            alert('❌ Будь ласка, вкажіть повну та коректну назву населеного пункту!');
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
+            return;
+        }
+
+        // 4. Перевірка пошти: чи є хоча б одна цифра?
+        if (!/\d/.test(post)) {
+            alert('❌ Будь ласка, вкажіть НОМЕР відділення або поштомату (цифрами)!');
+            document.getElementById('custPost').focus();
+            document.getElementById('custPost').style.borderColor = 'red';
+            btn.disabled = false;
+            btn.innerText = 'Підтвердити замовлення';
+            return;
+        } else {
+            document.getElementById('custPost').style.borderColor = '#ddd';
+        }
+
+        // Форматування телефону для відправки
         if (cleanPhone.startsWith('380')) cleanPhone = cleanPhone.substring(2);
         else if (cleanPhone.startsWith('80')) cleanPhone = cleanPhone.substring(1);
         else if (cleanPhone.length === 9) cleanPhone = '0' + cleanPhone; 
@@ -734,7 +770,7 @@
 
         let text = `📦 <b>НОВЕ ЗАМОВЛЕННЯ!</b>\n\nТовар: ${esc(`Літні чоловічі мокасини (з перфорацією)`)}\nКолір: ${esc(activeColorName)}\nРозмір: ${esc(activeSize)}\nЦіна: 2650 грн\n\nКлієнт: ${esc(name)}\nТел: <code>${displayPhone}</code>\nНаселений пункт: ${esc(city)}\nПошта: ${esc(post)}`;
         
-        if (comment.trim() !== "") text += `\nКоментар: ${esc(comment)}`;
+        if (comment !== "") text += `\nКоментар: ${esc(comment)}`;
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         const chatsStr = "8345637105, -5150186307";
@@ -785,6 +821,9 @@
                 document.getElementById('mainForm').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
                 document.getElementById('orderSummary').style.display = 'none';
+                
+                // Форма очищується ТІЛЬКИ після успішної відправки
+                document.getElementById('mainForm').reset(); 
             } else {
                 alert('Помилка! Повідомлення не відправлено. Перевірте Token та ID чатів.');
                 btn.disabled = false;
