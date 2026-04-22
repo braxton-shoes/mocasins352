@@ -407,8 +407,12 @@
 
             <form onsubmit="sendFinalOrder(event)" id="mainForm">
                 <div class="form-group">
-                    <label>Прізвище та Ім'я *</label>
-                    <input type="text" id="custName" required="" placeholder="Іваненко Іван">
+                    <label>Ім'я *</label>
+                    <input type="text" id="custFirstName" required="" placeholder="Іван">
+                </div>
+                <div class="form-group">
+                    <label>Прізвище *</label>
+                    <input type="text" id="custLastName" required="" placeholder="Іваненко">
                 </div>
                 <div class="form-group">
                     <label>Номер телефону *</label>
@@ -703,7 +707,9 @@
         btn.disabled = true;
         btn.innerText = 'Відправка...';
 
-        const name = document.getElementById('custName').value;
+        const firstName = document.getElementById('custFirstName').value;
+        const lastName = document.getElementById('custLastName').value;
+        const name = firstName + ' ' + lastName;
         const rawPhone = document.getElementById('custPhone').value;
         const city = document.getElementById('custCity').value;
         const post = document.getElementById('custPost').value;
@@ -737,8 +743,7 @@
         let replyMarkup = '';
         if (cleanPhone.length >= 10) {
             const kb = {
-                inline_keyboard: [
-                    [
+                inline_keyboard:[[
                         { text: "💬 Telegram", url: "https://t.me/+" + linkPhone },
                         { text: "💜 Viber (msng.link)", url: "https://msng.link/vi/" + linkPhone }
                     ]
@@ -769,7 +774,7 @@
                         content_type: 'product',
                         value: Number('2650'),
                         currency: 'UAH',
-                        contents: [{
+                        contents:[{
                             content_id: 'para_item',
                             content_type: 'product',
                             content_name: 'Літні чоловічі мокасини (з перфорацією) ' + activeColorName
